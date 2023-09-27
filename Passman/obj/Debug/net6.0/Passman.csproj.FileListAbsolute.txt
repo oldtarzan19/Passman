@@ -15,3 +15,4 @@ C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\obj\Debug\net6.0\re
 C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\bin\Debug\net6.0\CsvHelper.dll
 C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\obj\Debug\net6.0\Passman.csproj.AssemblyReference.cache
 C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\obj\Debug\net6.0\Passman.csproj.CopyComplete
+C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\bin\Debug\net6.0\Cryptography.Fernet.dll
