@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "UfFyvjSGn3074N8nrSsud4Rci2ruk1oyjRv/AjJxis81J1RgEoR3WqzKKqXQta6mVQhgrzqiJ7jUhkF+DkIL5w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\Passman\\Passman.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kristof\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
