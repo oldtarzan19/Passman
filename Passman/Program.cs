@@ -14,6 +14,7 @@ namespace Passman
             using StreamReader reader = new StreamReader(userCsvPath);
             using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             var records = csv.GetRecords<User>().ToList();
+            var encryptedType = new EncryptedType();
             for (int i = 0; i < records.Count; i++)
             {
                 if (records[i].VaultEntry.Count != 0)
@@ -21,6 +22,9 @@ namespace Passman
                     for (int j = 0; j < records[i].VaultEntry.Count; j++)
                     {
                         Console.WriteLine("Felhasználónév: " + records[i].Username + ", mentett felhasználónév: " + records[i].VaultEntry[j].Username);
+                        EncryptedType decryptedData = encryptedType.Decrypt(records[i].Email, records[i].VaultEntry[j].Password);
+                        Console.WriteLine("Visszafejtett üzenet (secret): " + decryptedData.Secret);
+                        Console.WriteLine();
                     }
                 }
                 else
