@@ -1,4 +1,6 @@
-﻿using Passman.Models;
+﻿using System.Globalization;
+using CsvHelper;
+using Passman.Models;
 
 namespace Passman
 {
@@ -6,13 +8,30 @@ namespace Passman
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Add(1,3));   
+            User.VaultEntryPath = Path.Combine("..", "..", "..","resources", "vault.csv");
+            string userCsvPath = Path.Combine("..", "..", "..","resources", "user.csv");
+            //  HATALMAS MEGAMIND ÖTLET HOGY A USERBEN A VAULTENTRY LISTET AD VISSZA
+            using StreamReader reader = new StreamReader(userCsvPath);
+            using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var records = csv.GetRecords<User>().ToList();
+            for (int i = 0; i < records.Count; i++)
+            {
+                if (records[i].VaultEntry.Count != 0)
+                {
+                    for (int j = 0; j < records[i].VaultEntry.Count; j++)
+                    {
+                        Console.WriteLine("Felhasználónév: " + records[i].Username + ", mentett felhasználónév: " + records[i].VaultEntry[j].Username);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Felhasználónév: " + records[i].Username + ", nincs mentett felhasználónév.");
+                }
+                
+            }
         }
         
-        static int Add(int a, int b)
-        {
-            return a + b;
-        }
+        
     }
 }
 
