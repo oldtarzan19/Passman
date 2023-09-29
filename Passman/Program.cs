@@ -54,10 +54,25 @@ namespace Passman
                         Console.WriteLine("Hiba! Nem adtál meg minden adatot! Próbáld újra!");
                     }
                     
-                }
-
-                if (command == "list")
+                }else if (command == "list")
                 {
+                    Console.WriteLine("Az adatok megjenítéséhez add meg a felhasználónevedet és a jelszavadat!");
+                    Console.WriteLine("Felhasználónév: ");
+                    string username = Console.ReadLine();
+                    Console.WriteLine("Jelszó: ");
+                    string password = Console.ReadLine();
+                    
+                    User user = new User();
+                    
+                    if (user.Login(username, password, userCsvPath))
+                    {
+                        Console.WriteLine("Sikeres bejelentkezés!");
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hibás felhasználónév vagy jelszó!");
+                    }
                     
                 }
             }

@@ -51,7 +51,7 @@ public class User
     {
         EncryptedType jelszo = new EncryptedType();
                     
-        User new_user = new User(username, jelszo.ComputeSHA256Hash(password), email, firstName, lastName);
+        User new_user = new User(username, jelszo.Hash(password), email, firstName, lastName);
                     
         using (StreamWriter writer = new(userCsvPath, append: true))
         {
@@ -66,5 +66,21 @@ public class User
             });
         }
     }
-    
+
+    public bool Login(string username, string password, string userCsvPath)
+    {
+        using StreamReader reader = new(userCsvPath);
+        using CsvReader csv = new(
+            reader, CultureInfo.InvariantCulture);
+        var records = csv.GetRecords<User>().ToList();
+        EncryptedType hash = new EncryptedType();
+        for (int i = 0; i < records.Count; i++)
+        {
+            if (records[i].Username == username && records[i].Password == hash.Hash(password))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

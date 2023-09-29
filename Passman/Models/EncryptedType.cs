@@ -33,7 +33,7 @@ namespace Passman.Models
             return new EncryptedType { Key = encodedKey, Secret = message };
         }
         
-        public string ComputeSHA256Hash(string input)
+        public string Hash(string input)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
