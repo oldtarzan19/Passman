@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using CommandLine;
 using CsvHelper;
 using CsvHelper.Configuration;
 using Passman.Models;
@@ -7,153 +8,162 @@ namespace Passman
 {
     class Program
     {
-
+        // TODO: relatv utvonalak hasznalata és csv-k
+        // TODO: A kapcsolt felhasználó is lekérhető legyen az adott jelszótól,
         static void Main(string[] args)
         {
-            
-            
-            string userCsvPath = Path.Combine("..", "..", "..", "resources", "user.csv");
-            string vaultCsvPath = Path.Combine("..", "..", "..", "resources", "vault.csv");
-
-            if (args.Length > 0)
-            {
-                string command = args[0];
-
-                if (command == "register")
+            Parser.Default.ParseArguments<Options>(args)
+                .WithParsed(options =>
                 {
-                    User.VaultEntryPath = Path.Combine("..", "..", "..", "resources", "vault.csv");
-                    
-                    bool hiba = false;
-                    Console.WriteLine("Felhasználó regisztráció");
-                    Console.WriteLine("Felhasználónév: ");
-                    string username = Console.ReadLine();
-                    if (username.Length == 0) hiba = true;
+                    string userCsvPath = Path.Combine("..", "..", "..", "resources", "user.csv");
+                    string vaultCsvPath = Path.Combine("..", "..", "..", "resources", "vault.csv");
+            
 
-                    Console.WriteLine("Jelszó: ");
-                    string password = Console.ReadLine();
-                    if (password.Trim().Length == 0) hiba = true;
-
-                    Console.WriteLine("Email: ");
-                    string email = Console.ReadLine();
-                    if (email.Trim().Length == 0) hiba = true;
-
-                    Console.WriteLine("Keresztnév: ");
-                    string firstName = Console.ReadLine();
-                    if (firstName.Trim().Length == 0) firstName = "default";
-
-                    Console.WriteLine("Vezetéknév: ");
-                    string lastName = Console.ReadLine();
-                    if (lastName.Length == 0) lastName = "default";
-
-                    if (!hiba)
+                    if (args.Length > 0)
                     {
-                        User new_user = new User();
-                        new_user.Save(username, password, email, firstName, lastName, userCsvPath);
-                        Console.WriteLine("Sikeres regisztráció!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Hiba! Nem adtál meg minden adatot! Próbáld újra!");
-                    }
+                        string command = args[0];
 
-                }
-                else if (command == "list")
-                {
-                    User.VaultEntryPath = Path.Combine("..", "..", "..", "resources", "vault.csv");
-                    Console.WriteLine("Mentett adatok megjenítése");
-                    Console.WriteLine("Az adatok megjenítéséhez add meg a felhasználónevedet és a jelszavadat!");
-                    Console.WriteLine("Felhasználónév: ");
-                    string username = Console.ReadLine();
-                    Console.WriteLine("Jelszó: ");
-                    string password = Console.ReadLine();
-
-                    User user = new User();
-                    
-                    if (user.Login(username, password, userCsvPath))
-                    {
-                        Console.WriteLine("Sikeres bejelentkezés!");
-
-                        Console.WriteLine("A mentett adataid: ");
-                        Console.WriteLine();
-                        
-                        using (StreamReader reader = new(userCsvPath))
+                        if (options.Register)
                         {
-                            using CsvReader csv = new(
-                                reader, CultureInfo.InvariantCulture);
-                            var records = csv.GetRecords<User>().ToList();
-                            
-                            var encryptedType = new EncryptedType();
-                            for (int i = 0; i < records.Count; i++)
-                            {
+                            User.VaultEntryPath = vaultCsvPath;
+                    
+                            bool hiba = false;
+                            Console.WriteLine("Felhasználó regisztráció");
+                            Console.WriteLine("Felhasználónév: ");
+                            string username = Console.ReadLine();
+                            if (username.Length == 0) hiba = true;
 
-                                if (records[i].Username == username)
+                            Console.WriteLine("Jelszó: ");
+                            string password = Console.ReadLine();
+                            if (password.Trim().Length == 0) hiba = true;
+
+                            Console.WriteLine("Email: ");
+                            string email = Console.ReadLine();
+                            if (email.Trim().Length == 0) hiba = true;
+
+                            Console.WriteLine("Keresztnév: ");
+                            string firstName = Console.ReadLine();
+                            if (firstName.Trim().Length == 0) firstName = "default";
+
+                            Console.WriteLine("Vezetéknév: ");
+                            string lastName = Console.ReadLine();
+                            if (lastName.Length == 0) lastName = "default";
+
+                            if (!hiba)
+                            {
+                                User new_user = new User();
+                                new_user.Save(username, password, email, firstName, lastName, userCsvPath);
+                                Console.WriteLine("Sikeres regisztráció!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Hiba! Nem adtál meg minden adatot! Próbáld újra!");
+                            }
+
+                        }
+                        else if (options.List)
+                        {
+                            User.VaultEntryPath = vaultCsvPath;
+                            Console.WriteLine("Mentett adatok megjenítése");
+                            Console.WriteLine("Az adatok megjenítéséhez add meg a felhasználónevedet és a jelszavadat!");
+                            Console.WriteLine("Felhasználónév: ");
+                            string username = Console.ReadLine();
+                            Console.WriteLine("Jelszó: ");
+                            string password = Console.ReadLine();
+
+                            User user = new User();
+                    
+                            if (user.Login(username, password, userCsvPath))
+                            {
+                                Console.WriteLine("Sikeres bejelentkezés!");
+
+                                Console.WriteLine("A mentett adataid: ");
+                                Console.WriteLine();
+                        
+                                using (StreamReader reader = new(userCsvPath))
                                 {
-                                    if (records[i].VaultEntry.Count != 0)
+                                    using CsvReader csv = new(
+                                        reader, CultureInfo.InvariantCulture);
+                                    var records = csv.GetRecords<User>().ToList();
+                            
+                                    var encryptedType = new EncryptedType();
+                                    for (int i = 0; i < records.Count; i++)
                                     {
-                                        for (int j = 0; j < records[i].VaultEntry.Count; j++)
+
+                                        if (records[i].Username == username)
                                         {
-                                            Console.WriteLine("Felhasználónév: " + records[i].VaultEntry[j].Username);
-                                            EncryptedType decryptedData = encryptedType.Decrypt(records[i].Email,
-                                                records[i].VaultEntry[j].Password);
-                                            Console.WriteLine("Weboldal: " + records[i].VaultEntry[j].Website);
-                                            Console.WriteLine("Jelszó: " + decryptedData.Secret);
-                                            Console.WriteLine();
+                                            if (records[i].VaultEntry.Count != 0)
+                                            {
+                                                for (int j = 0; j < records[i].VaultEntry.Count; j++)
+                                                {
+                                                    Console.WriteLine("Felhasználónév: " + records[i].VaultEntry[j].Username);
+                                                    EncryptedType decryptedData = encryptedType.Decrypt(records[i].Email,
+                                                        records[i].VaultEntry[j].Password);
+                                                    Console.WriteLine("Weboldal: " + records[i].VaultEntry[j].Website);
+                                                    Console.WriteLine("Jelszó: " + decryptedData.Secret);
+                                                    Console.WriteLine();
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Felhasználónévhez: " + records[i].Username +
+                                                                  ", nincs mentett felhasználónév.");
+                                            }
                                         }
                                     }
-                                    else
-                                    {
-                                        Console.WriteLine("Felhasználónévhez: " + records[i].Username +
-                                                          ", nincs mentett felhasználónév.");
-                                    }
+                            
                                 }
                             }
-                            
+                            else
+                            {
+                                Console.WriteLine("Hibás felhasználónév vagy jelszó!");
+                            }
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Hibás felhasználónév vagy jelszó!");
-                    }
-                }
                 
-                else if(command == "add")
-                {
-                    Console.WriteLine("Új bejlenetkezési adat hozzáadása");
-                    Console.WriteLine("Az adatok hozzáadásához add meg a felhasználónevedet és a jelszavadat!");
-                    Console.WriteLine("Felhasználónév: ");
-                    string username = Console.ReadLine();
-                    Console.WriteLine("Jelszó: ");
-                    string password = Console.ReadLine();
+                        else if(options.Add)
+                        {
+                            Console.WriteLine("Új bejlenetkezési adat hozzáadása");
+                            Console.WriteLine("Az adatok hozzáadásához add meg a felhasználónevedet és a jelszavadat!");
+                            Console.WriteLine("Felhasználónév: ");
+                            string username = Console.ReadLine();
+                            Console.WriteLine("Jelszó: ");
+                            string password = Console.ReadLine();
                     
-                    User user = new User();
+                            User user = new User();
                     
-                    if (user.Login(username, password, userCsvPath))
-                    {
-                        Console.WriteLine("Sikeres bejelentkezés!");
-                        Console.WriteLine();
-                        Console.WriteLine("Új adatok megadása:");
-                        Console.WriteLine("Felhasználónév: ");
-                        string newUsername = Console.ReadLine();
-                        Console.WriteLine("Jelszó: ");
-                        string newPassword = Console.ReadLine();
-                        Console.WriteLine("Weboldal: ");
-                        string newWebsite = Console.ReadLine();
+                            if (user.Login(username, password, userCsvPath))
+                            {
+                                Console.WriteLine("Sikeres bejelentkezés!");
+                                Console.WriteLine();
+                                Console.WriteLine("Új adatok megadása:");
+                                Console.WriteLine("Felhasználónév: ");
+                                string newUsername = Console.ReadLine();
+                                Console.WriteLine("Jelszó: ");
+                                string newPassword = Console.ReadLine();
+                                Console.WriteLine("Weboldal: ");
+                                string newWebsite = Console.ReadLine();
                         
-                        User loggedInUser = user.GetUserByUsername(username, userCsvPath, true);
+                                User loggedInUser = user.GetUserByUsername(username, userCsvPath, true);
                         
                         
                         
-                        VaultEntry newVaultEntry = new VaultEntry();
-                        newVaultEntry.Save(username,loggedInUser.Email, newUsername, newPassword, newWebsite, vaultCsvPath);
-                        Console.WriteLine("Sikeres hozzáadás!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Hibás felhasználónév vagy jelszó!");
-                    }
-                }
+                                VaultEntry newVaultEntry = new VaultEntry();
+                                newVaultEntry.Save(username,loggedInUser.Email, newUsername, newPassword, newWebsite, vaultCsvPath);
+                                Console.WriteLine("Sikeres hozzáadás!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Hibás felhasználónév vagy jelszó!");
+                            }
+                        }
 
-            }
+                    }
+                    
+                    
+                    
+                });
+            
+            
 
 
 
