@@ -7,14 +7,14 @@ namespace Passman
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
-            
-            User.VaultEntryPath = Path.Combine("..", "..", "..","resources", "vault.csv");
-            string userCsvPath = Path.Combine("..", "..", "..","resources", "user.csv");
-            string vaultCsvPath = Path.Combine("..", "..", "..","resources", "vault.csv");
-            
+
+            User.VaultEntryPath = Path.Combine("..", "..", "..", "resources", "vault.csv");
+            string userCsvPath = Path.Combine("..", "..", "..", "resources", "user.csv");
+            string vaultCsvPath = Path.Combine("..", "..", "..", "resources", "vault.csv");
+
             if (args.Length > 0)
             {
                 string command = args[0];
@@ -26,19 +26,19 @@ namespace Passman
                     Console.WriteLine("Felhasználónév: ");
                     string username = Console.ReadLine();
                     if (username.Length == 0) hiba = true;
-                    
+
                     Console.WriteLine("Jelszó: ");
                     string password = Console.ReadLine();
-                    if (password.Length == 0) hiba = true;
-                    
+                    if (password.Trim().Length == 0) hiba = true;
+
                     Console.WriteLine("Email: ");
                     string email = Console.ReadLine();
-                    if (email.Length == 0) hiba = true;
-                    
-                    Console.WriteLine("Keresztnév: ") ;
+                    if (email.Trim().Length == 0) hiba = true;
+
+                    Console.WriteLine("Keresztnév: ");
                     string firstName = Console.ReadLine();
-                    if (firstName.Length == 0) firstName = "default";
-                    
+                    if (firstName.Trim().Length == 0) firstName = "default";
+
                     Console.WriteLine("Vezetéknév: ");
                     string lastName = Console.ReadLine();
                     if (lastName.Length == 0) lastName = "default";
@@ -53,34 +53,72 @@ namespace Passman
                     {
                         Console.WriteLine("Hiba! Nem adtál meg minden adatot! Próbáld újra!");
                     }
-                    
-                }else if (command == "list")
+
+                }
+                else if (command == "list")
                 {
                     Console.WriteLine("Az adatok megjenítéséhez add meg a felhasználónevedet és a jelszavadat!");
                     Console.WriteLine("Felhasználónév: ");
                     string username = Console.ReadLine();
                     Console.WriteLine("Jelszó: ");
                     string password = Console.ReadLine();
-                    
+
                     User user = new User();
-                    
+
+
+
                     if (user.Login(username, password, userCsvPath))
                     {
                         Console.WriteLine("Sikeres bejelentkezés!");
-                        
+
+                        Console.WriteLine("A mentett adataid: ");
+                        Console.WriteLine();
+
+                        using StreamReader reader = new StreamReader(userCsvPath);
+                        using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+                        var records = csv.GetRecords<User>().ToList();
+                        var encryptedType = new EncryptedType();
+                        for (int i = 0; i < records.Count; i++)
+                        {
+
+                            if (records[i].Username == username)
+                            {
+                                if (records[i].VaultEntry.Count != 0)
+                                {
+                                    for (int j = 0; j < records[i].VaultEntry.Count; j++)
+                                    {
+                                        Console.WriteLine("Felhasználónév: " + records[i].VaultEntry[j].Username);
+                                        EncryptedType decryptedData = encryptedType.Decrypt(records[i].Email,
+                                            records[i].VaultEntry[j].Password);
+                                        Console.WriteLine("Weboldal: " + records[i].VaultEntry[j].Website);
+                                        Console.WriteLine("Jelszó: " + decryptedData.Secret);
+                                        Console.WriteLine();
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Felhasználónévhez: " + records[i].Username +
+                                                      ", nincs mentett felhasználónév.");
+                                }
+                            }
+                        }
+
                     }
                     else
                     {
                         Console.WriteLine("Hibás felhasználónév vagy jelszó!");
                     }
+                }
+                else if(command == "add")
+                {
                     
                 }
-            }
-            
-        }
 
-        
-        
+            }
+
+
+
+        }
     }
 }
 
