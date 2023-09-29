@@ -21,14 +21,19 @@ namespace Passman
 
                 if (command == "register")
                 {
+                    bool hiba = false;
                     Console.WriteLine("Felhasználó regisztráció");
                     Console.WriteLine("Felhasználónév: ");
                     string username = Console.ReadLine();
+                    if (username.Length == 0) hiba = true;
                     
                     Console.WriteLine("Jelszó: ");
                     string password = Console.ReadLine();
+                    if (password.Length == 0) hiba = true;
+                    
                     Console.WriteLine("Email: ");
                     string email = Console.ReadLine();
+                    if (email.Length == 0) hiba = true;
                     
                     Console.WriteLine("Keresztnév: ") ;
                     string firstName = Console.ReadLine();
@@ -37,11 +42,26 @@ namespace Passman
                     Console.WriteLine("Vezetéknév: ");
                     string lastName = Console.ReadLine();
                     if (lastName.Length == 0) lastName = "default";
+
+                    if (!hiba)
+                    {
+                        User new_user = new User();
+                        new_user.Save(username, password, email, firstName, lastName, userCsvPath);
+                        Console.WriteLine("Sikeres regisztráció!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hiba! Nem adtál meg minden adatot! Próbáld újra!");
+                    }
                     
-                    User new_user = new User();
-                    new_user.Save(username, password, email, firstName, lastName, userCsvPath);
+                }
+
+                if (command == "list")
+                {
+                    
                 }
             }
+            
         }
 
         
