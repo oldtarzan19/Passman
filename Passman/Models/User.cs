@@ -8,7 +8,6 @@ using System.Globalization;
 public class User
 {
     public static string? VaultEntryPath { get; set; }
-    // public string UserId { get; set; }
     [Name("username")]
     public string Username { get; set; }
     [Name("password")]
@@ -82,5 +81,26 @@ public class User
             }
         }
         return false;
+    }
+    
+    public User GetUserByUsername(string username, string userCsvPath, bool letezik)
+    {
+        User user;
+        if (letezik)
+        {
+            using StreamReader reader = new(userCsvPath);
+            using CsvReader csv = new(
+                reader, CultureInfo.InvariantCulture);
+            var records = csv.GetRecords<User>().ToList();
+            for (int i = 0; i < records.Count; i++)
+            {
+                if (records[i].Username == username)
+                {
+                    return user = new User(records[i].Username, records[i].Password, records[i].Email, records[i].firstName, records[i].lastName);
+                }
+            }
+        }
+        
+        return null;
     }
 }
