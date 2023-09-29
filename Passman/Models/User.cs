@@ -1,3 +1,5 @@
+using CsvHelper.Configuration;
+
 namespace Passman.Models;
 using CsvHelper;
 using CsvHelper.Configuration.Attributes;
@@ -42,6 +44,26 @@ public class User
             using StreamReader reader = new StreamReader(VaultEntryPath);
             using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             return csv.GetRecords<VaultEntry>().Where(el => el.UserId == Username).ToList();
+        }
+    }
+
+    public void Save(string username, string password, string email, string firstName, string lastName, string userCsvPath)
+    {
+        EncryptedType jelszo = new EncryptedType();
+                    
+        User new_user = new User(username, jelszo.ComputeSHA256Hash(password), email, firstName, lastName);
+                    
+        using (StreamWriter writer = new(userCsvPath, append: true))
+        {
+            CsvConfiguration config = new(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = false
+            };
+            using CsvWriter csv = new(writer, config);
+            csv.WriteRecords(new List<User>()
+            {
+                new_user
+            });
         }
     }
     

@@ -12,6 +12,18 @@ public class VaultEntry
     public string Password { get; set; }
     [Name("website")]
     public string Website { get; set; }
+    
+    
+    public VaultEntry(string userId, string username, string password, string website)
+    {
+        UserId = userId;
+        Username = username;
+        Password = password;
+        Website = website;
+    }
+    public VaultEntry()
+    {
+    }
 
     public User User
     {

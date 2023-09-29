@@ -13,6 +13,7 @@ namespace Passman
             
             User.VaultEntryPath = Path.Combine("..", "..", "..","resources", "vault.csv");
             string userCsvPath = Path.Combine("..", "..", "..","resources", "user.csv");
+            string vaultCsvPath = Path.Combine("..", "..", "..","resources", "vault.csv");
             
             if (args.Length > 0)
             {
@@ -23,33 +24,22 @@ namespace Passman
                     Console.WriteLine("Felhasználó regisztráció");
                     Console.WriteLine("Felhasználónév: ");
                     string username = Console.ReadLine();
+                    
                     Console.WriteLine("Jelszó: ");
                     string password = Console.ReadLine();
                     Console.WriteLine("Email: ");
                     string email = Console.ReadLine();
-                    Console.WriteLine("Keresztnév: ");
+                    
+                    Console.WriteLine("Keresztnév: ") ;
                     string firstName = Console.ReadLine();
+                    if (firstName.Length == 0) firstName = "default";
+                    
                     Console.WriteLine("Vezetéknév: ");
                     string lastName = Console.ReadLine();
-                    User new_user = new User(username, password, email, firstName, lastName);
-                   
-                    bool mode = true;
-                    using (StreamWriter writer = new(userCsvPath, append: mode))
-                    {
-                        CsvConfiguration config = new(CultureInfo.InvariantCulture)
-                        {
-                            HasHeaderRecord = false
-                        };
-                        using CsvWriter csv = new(writer, config);
-                        csv.WriteRecords(new List<User>()
-                        {
-                            new_user
-                        });
-                    }
+                    if (lastName.Length == 0) lastName = "default";
                     
-                    
-                    
-                    
+                    User new_user = new User();
+                    new_user.Save(username, password, email, firstName, lastName, userCsvPath);
                 }
             }
         }
