@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ksxJehv4XtkOubiafBDF3zGC7Il5VQxSI0MzTSaHeJnXMqMJN50SH/yQpejQfvE3/N4iy05vt9rRvaJceGaPTw==",
+  "dgSpecHash": "FYdc+NWC56xduzAQQ9ajRF/Y8lnqGI45HKl7kZR60RzIe7A1szt+dY6kjAjU9B473M7yFssTVWZpKB3caJj/Ag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\Passman\\Passman.csproj",
+  "projectFilePath": "C:\\Users\\Kristof\\RiderProjects\\Passman\\Passman\\Passman.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kristof\\.nuget\\packages\\cryptography.fernet\\1.1.1\\cryptography.fernet.1.1.1.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"

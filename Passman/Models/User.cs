@@ -17,6 +17,19 @@ public class User
     public string firstName { get; set; }
     [Name("lastname")]
     public string lastName { get; set; }
+    
+    public User(string username, string password, string email, string firstName, string lastName)
+    {
+        Username = username;
+        Password = password;
+        Email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    
+    public User()
+    {
+    }
 
     public List<VaultEntry> VaultEntry
     {

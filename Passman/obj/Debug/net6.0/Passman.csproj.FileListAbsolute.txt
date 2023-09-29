@@ -16,3 +16,21 @@ C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\bin\Debug\net6.0\Cs
 C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\obj\Debug\net6.0\Passman.csproj.AssemblyReference.cache
 C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\obj\Debug\net6.0\Passman.csproj.CopyComplete
 C:\Users\Kristof\Desktop\Alkfejl2\Beadando 1\Passman\Passman\bin\Debug\net6.0\Cryptography.Fernet.dll
+C:\Users\Kristof\RiderProjects\Passman\Passman\bin\Debug\net6.0\Passman.exe
+C:\Users\Kristof\RiderProjects\Passman\Passman\bin\Debug\net6.0\Passman.deps.json
+C:\Users\Kristof\RiderProjects\Passman\Passman\bin\Debug\net6.0\Passman.runtimeconfig.json
+C:\Users\Kristof\RiderProjects\Passman\Passman\bin\Debug\net6.0\Passman.dll
+C:\Users\Kristof\RiderProjects\Passman\Passman\bin\Debug\net6.0\Passman.pdb
+C:\Users\Kristof\RiderProjects\Passman\Passman\bin\Debug\net6.0\Cryptography.Fernet.dll
+C:\Users\Kristof\RiderProjects\Passman\Passman\bin\Debug\net6.0\CsvHelper.dll
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.csproj.AssemblyReference.cache
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.AssemblyInfoInputs.cache
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.AssemblyInfo.cs
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.csproj.CoreCompileInputs.cache
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.csproj.CopyComplete
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.dll
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\refint\Passman.dll
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.pdb
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\Passman.genruntimeconfig.cache
+C:\Users\Kristof\RiderProjects\Passman\Passman\obj\Debug\net6.0\ref\Passman.dll

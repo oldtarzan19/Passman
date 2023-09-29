@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\Passman\\Passman.csproj": {}
+    "C:\\Users\\Kristof\\RiderProjects\\Passman\\Passman\\Passman.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\Passman\\Passman.csproj": {
+    "C:\\Users\\Kristof\\RiderProjects\\Passman\\Passman\\Passman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\Passman\\Passman.csproj",
+        "projectUniqueName": "C:\\Users\\Kristof\\RiderProjects\\Passman\\Passman\\Passman.csproj",
         "projectName": "Passman",
-        "projectPath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\Passman\\Passman.csproj",
+        "projectPath": "C:\\Users\\Kristof\\RiderProjects\\Passman\\Passman\\Passman.csproj",
         "packagesPath": "C:\\Users\\Kristof\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\Passman\\obj\\",
+        "outputPath": "C:\\Users\\Kristof\\RiderProjects\\Passman\\Passman\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Kristof\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

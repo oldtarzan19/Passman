@@ -1,39 +1,59 @@
 ﻿using System.Globalization;
 using CsvHelper;
+using CsvHelper.Configuration;
 using Passman.Models;
 
 namespace Passman
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
+            
             User.VaultEntryPath = Path.Combine("..", "..", "..","resources", "vault.csv");
             string userCsvPath = Path.Combine("..", "..", "..","resources", "user.csv");
-            //  HATALMAS MEGAMIND ÖTLET HOGY A USERBEN A VAULTENTRY LISTET AD VISSZA
-            using StreamReader reader = new StreamReader(userCsvPath);
-            using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            var records = csv.GetRecords<User>().ToList();
-            var encryptedType = new EncryptedType();
-            for (int i = 0; i < records.Count; i++)
+            
+            if (args.Length > 0)
             {
-                if (records[i].VaultEntry.Count != 0)
+                string command = args[0];
+
+                if (command == "register")
                 {
-                    for (int j = 0; j < records[i].VaultEntry.Count; j++)
+                    Console.WriteLine("Felhasználó regisztráció");
+                    Console.WriteLine("Felhasználónév: ");
+                    string username = Console.ReadLine();
+                    Console.WriteLine("Jelszó: ");
+                    string password = Console.ReadLine();
+                    Console.WriteLine("Email: ");
+                    string email = Console.ReadLine();
+                    Console.WriteLine("Keresztnév: ");
+                    string firstName = Console.ReadLine();
+                    Console.WriteLine("Vezetéknév: ");
+                    string lastName = Console.ReadLine();
+                    User new_user = new User(username, password, email, firstName, lastName);
+                   
+                    bool mode = true;
+                    using (StreamWriter writer = new(userCsvPath, append: mode))
                     {
-                        Console.WriteLine("Felhasználónév: " + records[i].Username + ", mentett felhasználónév: " + records[i].VaultEntry[j].Username);
-                        EncryptedType decryptedData = encryptedType.Decrypt(records[i].Email, records[i].VaultEntry[j].Password);
-                        Console.WriteLine("Visszafejtett üzenet (secret): " + decryptedData.Secret);
-                        Console.WriteLine();
+                        CsvConfiguration config = new(CultureInfo.InvariantCulture)
+                        {
+                            HasHeaderRecord = false
+                        };
+                        using CsvWriter csv = new(writer, config);
+                        csv.WriteRecords(new List<User>()
+                        {
+                            new_user
+                        });
                     }
+                    
+                    
+                    
+                    
                 }
-                else
-                {
-                    Console.WriteLine("Felhasználónév: " + records[i].Username + ", nincs mentett felhasználónév.");
-                }
-                
             }
         }
+
         
         
     }
@@ -43,7 +63,31 @@ namespace Passman
 
 
 
-
+// User.VaultEntryPath = Path.Combine("..", "..", "..","resources", "vault.csv");
+// string userCsvPath = Path.Combine("..", "..", "..","resources", "user.csv");
+// //  HATALMAS MEGAMIND ÖTLET HOGY A USERBEN A VAULTENTRY LISTET AD VISSZA
+// using StreamReader reader = new StreamReader(userCsvPath);
+// using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+// var records = csv.GetRecords<User>().ToList();
+// var encryptedType = new EncryptedType();
+// for (int i = 0; i < records.Count; i++)
+// {
+//     if (records[i].VaultEntry.Count != 0)
+//     {
+//         for (int j = 0; j < records[i].VaultEntry.Count; j++)
+//         {
+//             Console.WriteLine("Felhasználónév: " + records[i].Username + ", mentett felhasználónév: " + records[i].VaultEntry[j].Username);
+//             EncryptedType decryptedData = encryptedType.Decrypt(records[i].Email, records[i].VaultEntry[j].Password);
+//             Console.WriteLine("Visszafejtett üzenet (secret): " + decryptedData.Secret);
+//             Console.WriteLine();
+//         }
+//     }
+//     else
+//     {
+//         Console.WriteLine("Felhasználónév: " + records[i].Username + ", nincs mentett felhasználónév.");
+//     }
+//                 
+// }
 
 
 // // Példa key és secret

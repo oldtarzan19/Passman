@@ -18,7 +18,7 @@ public class VaultEntry
         get
         {
             // get user by UserId from the database
-            return new User();
+             return new User();
         }
     }
 }
