@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "aYcUR+RPc8rtSQ93zLXe9Yq8W9d8ItKrQfo9xvJIWA2kQQouPV+V1zPsSSr+CUt+iGbChyqC1I6KXTePBPr8iQ==",
+  "dgSpecHash": "reTMC4696EjbDgz2hpaiL9bMuEHSSqv489Z56QCHHZXj0rwtovLxB9+wVJWDRn+4Z0T4G9G9OExQFUktX+raFw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kristof\\RiderProjects\\Passman\\Passman\\Passman.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kristof\\.nuget\\packages\\commandlineparser\\2.9.1\\commandlineparser.2.9.1.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\cryptography.fernet\\1.1.1\\cryptography.fernet.1.1.1.nupkg.sha512",
-    "C:\\Users\\Kristof\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+    "C:\\Users\\Kristof\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
+    "C:\\Users\\Kristof\\.nuget\\packages\\system.commandline\\2.0.0-beta4.22272.1\\system.commandline.2.0.0-beta4.22272.1.nupkg.sha512"
   ],
   "logs": []
 }

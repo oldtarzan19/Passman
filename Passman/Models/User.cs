@@ -103,4 +103,20 @@ public class User
         
         return null;
     }
+
+    public User Get(string userId)
+    {
+        string userCsvPath = Path.Combine("..", "..", "..", "resources", "user.csv");
+        using StreamReader reader = new(userCsvPath);
+        using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+        var records = csv.GetRecords<User>().ToList();
+        for (int i = 0; i < records.Count; i++)
+        {
+            if (records[i].Username == userId)
+            {
+                return new User(records[i].Username, records[i].Password, records[i].Email, records[i].firstName, records[i].lastName);
+            }
+        }
+        return null;
+    }
 }

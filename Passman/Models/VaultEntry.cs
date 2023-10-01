@@ -32,8 +32,8 @@ public class VaultEntry
     {
         get
         {
-            // get user by UserId from the database
-             return new User();
+            User user = new User();
+            return user.Get(UserId);
         }
     }
 

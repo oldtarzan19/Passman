@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Reflection;
 using CommandLine;
 using CsvHelper;
 using CsvHelper.Configuration;
@@ -9,9 +10,12 @@ namespace Passman
     class Program
     {
         // TODO: relatv utvonalak hasznalata és csv-k
-        // TODO: A kapcsolt felhasználó is lekérhető legyen az adott jelszótól,
         static void Main(string[] args)
         {
+            // Workdir beállítása
+            Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            
+
             Parser.Default.ParseArguments<Options>(args)
                 .WithParsed(options =>
                 {
