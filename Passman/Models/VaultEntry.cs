@@ -27,15 +27,17 @@ public class VaultEntry
     public VaultEntry()
     {
     }
-
-    public User User
-    {
-        get
-        {
-            User user = new User();
-            return user.Get(UserId);
-        }
-    }
+    
+    // Hibás működést okozott, ezért kikommenteltem.
+    
+    // public User User
+    // {
+    //     get
+    //     {
+    //         User user = new User();
+    //         return user.Get(UserId);
+    //     }
+    // }
 
     public void Save(string username,string email , string newUsername, string newPassword, string newWebsite, string vaultCsvPath)
     {

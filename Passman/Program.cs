@@ -4,6 +4,9 @@ using CommandLine;
 using CsvHelper;
 using CsvHelper.Configuration;
 using Passman.Models;
+using System.IO;
+using System;
+using Newtonsoft.Json;
 
 namespace Passman
 {
@@ -12,8 +15,17 @@ namespace Passman
         // TODO: relatv utvonalak hasznalata és csv-k
         static void Main(string[] args)
         {
-            // Workdir beállítása
+            
             Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            // string congifPath = Path.Combine("..", "..", "..", "resources", "config.json");
+            // AppConfig appConfig = LoadConfig(congifPath);
+            
+            
+            // Workdir beállítása
+            // if (!string.IsNullOrEmpty(appConfig.WorkDirectory))
+            // {
+            //     Environment.CurrentDirectory = appConfig.WorkDirectory;
+            // }
             
 
             Parser.Default.ParseArguments<Options>(args)
@@ -123,7 +135,6 @@ namespace Passman
                                 Console.WriteLine("Hibás felhasználónév vagy jelszó!");
                             }
                         }
-                
                         else if(options.Add)
                         {
                             Console.WriteLine("Új bejlenetkezési adat hozzáadása");
@@ -160,92 +171,65 @@ namespace Passman
                                 Console.WriteLine("Hibás felhasználónév vagy jelszó!");
                             }
                         }
+                        // else if(options.Workdir)
+                        // {
+                        //     Console.WriteLine("Munkakönyvtár módosítása");
+                        //     Console.WriteLine("Add meg az új munkakönyvtárat: ");
+                        //     string newWorkdir = Console.ReadLine();
+                        //     AppConfig config = new AppConfig
+                        //     {
+                        //         WorkDirectory = newWorkdir
+                        //     };
+                        //
+                        //     SaveConfig(congifPath, config);
+                        // }
+                        // else if(options.Delete)
+                        // {
+                        //     Console.WriteLine("Munkakönyvtár alaphelyzetbe állítása");
+                        //     appConfig.WorkDirectory = "";
+                        //     SaveConfig(congifPath, appConfig);
+                        //     Console.WriteLine("Sikeres módosítás!");
+                        // }
 
                     }
-                    
-                    
-                    
                 });
             
-            
-
-
-
         }
+        
+        // private static AppConfig LoadConfig(string configPath)
+        // {
+        //     try
+        //     {
+        //         string json = File.ReadAllText(configPath);
+        //         return JsonConvert.DeserializeObject<AppConfig>(json);
+        //     }
+        //     catch (Exception e)
+        //     {
+        //         Console.WriteLine($"Hiba a konfiguráció beolvasásakor: {e.Message}");
+        //         Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        //         Console.WriteLine("A program visszaállítja az alapértelmezett munkakönyvtárat.");
+        //         return new AppConfig(); 
+        //     }
+        // }
+        //
+        // private static void SaveConfig(string configPath, AppConfig config)
+        // {
+        //     try
+        //     {
+        //         
+        //         var jsonObject = new { WorkDirectory = config.WorkDirectory };
+        //         
+        //         string json = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
+        //         
+        //         File.WriteAllText(configPath, json);
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         Console.WriteLine($"Hiba a konfiguráció mentésekor: {ex.Message}");
+        //         
+        //         Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        //         Console.WriteLine("A program visszaállítja az alapértelmezett munkakönyvtárat.");
+        //     }
+        // }
     }
 }
-
-
-
-
-
-// User.VaultEntryPath = Path.Combine("..", "..", "..","resources", "vault.csv");
-// string userCsvPath = Path.Combine("..", "..", "..","resources", "user.csv");
-// //  HATALMAS MEGAMIND ÖTLET HOGY A USERBEN A VAULTENTRY LISTET AD VISSZA
-// using StreamReader reader = new StreamReader(userCsvPath);
-// using CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-// var records = csv.GetRecords<User>().ToList();
-// var encryptedType = new EncryptedType();
-// for (int i = 0; i < records.Count; i++)
-// {
-//     if (records[i].VaultEntry.Count != 0)
-//     {
-//         for (int j = 0; j < records[i].VaultEntry.Count; j++)
-//         {
-//             Console.WriteLine("Felhasználónév: " + records[i].Username + ", mentett felhasználónév: " + records[i].VaultEntry[j].Username);
-//             EncryptedType decryptedData = encryptedType.Decrypt(records[i].Email, records[i].VaultEntry[j].Password);
-//             Console.WriteLine("Visszafejtett üzenet (secret): " + decryptedData.Secret);
-//             Console.WriteLine();
-//         }
-//     }
-//     else
-//     {
-//         Console.WriteLine("Felhasználónév: " + records[i].Username + ", nincs mentett felhasználónév.");
-//     }
-//                 
-// }
-
-
-// // Példa key és secret
-// string key = "mySecretKey123";
-// string secret = "This is a secret message!";
-//
-// // Létrehozunk egy példa objektumot
-// var encryptedType = new EncryptedType();
-//
-// // Titkosítás
-// EncryptedType encryptedData = encryptedType.Encrypt(key, secret);
-// Console.WriteLine("Titkosított kulcs (key): " + encryptedData.Key);
-// Console.WriteLine("Titkosított üzenet (secret): " + encryptedData.Secret);
-//
-// // Visszafejtés
-// EncryptedType decryptedData = encryptedType.Decrypt(key, encryptedData.Secret);
-// Console.WriteLine("Visszafejtett üzenet (secret): " + decryptedData.Secret);
-            
-// parancssori argumentumok kezelése
-// if (args.Length > 0)
-// {
-//     bool found = false;
-//     string command = args[0];
-//     if (command == "--register" || command == "-r")
-//     {
-//         // Regisztrációs logika
-//         Console.WriteLine("Sikeres regisztráció!");
-//         found = true;
-//     }
-//
-//     if (command == "--login" || command == "-l")
-//     {
-//         // Bejelentkezési logika
-//         Console.WriteLine("Sikeres bejelentkezés!");
-//         found = true;
-//     }
-//     if (!found)
-//     {
-//         Console.WriteLine("Ismeretlen parancs. Használat: --register vagy -r");
-//     }
-// }
-// else
-// {
-//     Console.WriteLine("Nincs parancs megadva. Használat: --register vagy -r");
-// }

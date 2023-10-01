@@ -11,4 +11,9 @@ public class Options
     [Option('r', "register", Required = false, HelpText = "Új felhasználó regisztrálása.")]
     public bool Register { get; set; }
     
+    // [Option('w', "workdir", Required = false, HelpText = "Working directory módosítása.")]
+    // public bool Workdir { get; set; }
+    //
+    // [Option('d', "delete", Required = false, HelpText = "Working directory alaphelyzetbe állítása.")]
+    // public bool Delete { get; set; }
 }
