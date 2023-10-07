@@ -58,4 +58,37 @@ public class VaultEntry
             });
         }
     }
+    
+    public void Delete(string vaultCsvPath, string username = "q")
+    {
+        List<VaultEntry> vaultEntries = new List<VaultEntry>();
+        using (StreamReader reader = new(vaultCsvPath))
+        {
+            CsvConfiguration config = new(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = false
+            };
+            using CsvReader csv = new(reader, config);
+            vaultEntries = csv.GetRecords<VaultEntry>().ToList();
+        }
+
+        for (int i = 0; i < vaultEntries.Count; i++)
+        {
+            if (vaultEntries[i].Username == username)
+            {
+                vaultEntries.RemoveAt(i);
+                i--;
+            }
+        }
+        
+        using (StreamWriter writer = new(vaultCsvPath))
+        {
+            CsvConfiguration config = new(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = false
+            };
+            using CsvWriter csv = new(writer, config);
+            csv.WriteRecords(vaultEntries);
+        }
+    }
 }

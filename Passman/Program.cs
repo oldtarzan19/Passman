@@ -6,6 +6,7 @@ using CsvHelper.Configuration;
 using Passman.Models;
 using System.IO;
 using System;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 
 namespace Passman
@@ -170,6 +171,13 @@ namespace Passman
                             {
                                 Console.WriteLine("Hibás felhasználónév vagy jelszó!");
                             }
+                        }
+                        else if(options.Test)
+                        {
+                            Console.WriteLine("Tesztelés");
+                            VaultEntry vaultEntry = new VaultEntry();
+                            vaultEntry.Delete(vaultCsvPath);
+                            Console.WriteLine("Teszt sikeresen lefutott!");
                         }
                         // else if(options.Workdir)
                         // {

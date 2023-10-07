@@ -119,4 +119,65 @@ public class User
         }
         return null;
     }
+    
+    
+    public void DeleteUser(string userCsvPath, string vaultEntryCsvPath, string userId)
+    {
+        List<User> users = new List<User>();
+        List<VaultEntry> vaultEntries = new List<VaultEntry>();
+
+        using (StreamReader streamReader = new StreamReader(userCsvPath))
+        {
+            using (CsvReader csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
+            {
+                users = csvReader.GetRecords<User>().ToList();
+            }
+        }
+        
+        using (StreamReader streamReader = new StreamReader(vaultEntryCsvPath))
+        {
+            using (CsvReader csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
+            {
+                vaultEntries = csvReader.GetRecords<VaultEntry>().ToList();
+            }
+        }
+        
+        // Törölni a felhasználót a listából
+
+        for (int i = 0; i < users.Count; i++)
+        {
+            if (users[i].Username == userId)
+            {
+                users.RemoveAt(i);
+                break;
+            }
+        }
+        
+        // Törölni a felhasználóhoz tartozó jelszavakat a listából
+        
+        for (int i = 0; i < vaultEntries.Count; i++)
+        {
+            if (vaultEntries[i].UserId == userId)
+            {
+                vaultEntries.RemoveAt(i);
+                i--;
+            }
+        }
+
+        using (StreamWriter streamWriter = new StreamWriter(userCsvPath))
+        {
+            using (CsvWriter csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture))
+            {
+                csvWriter.WriteRecords(users);
+            }
+        }
+        
+        using (StreamWriter streamWriter = new StreamWriter(vaultEntryCsvPath))
+        {
+            using (CsvWriter csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture))
+            {
+                csvWriter.WriteRecords(vaultEntries);
+            }
+        }
+    }
 }
