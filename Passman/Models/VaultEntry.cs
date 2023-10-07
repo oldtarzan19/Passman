@@ -59,7 +59,7 @@ public class VaultEntry
         }
     }
     
-    public void Delete(string vaultCsvPath, string username = "q")
+    public void Delete(string vaultCsvPath, string username)
     {
         List<VaultEntry> vaultEntries = new List<VaultEntry>();
         using (StreamReader reader = new(vaultCsvPath))

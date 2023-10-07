@@ -175,8 +175,6 @@ namespace Passman
                         else if(options.Test)
                         {
                             Console.WriteLine("Tesztelés");
-                            VaultEntry vaultEntry = new VaultEntry();
-                            vaultEntry.Delete(vaultCsvPath);
                             Console.WriteLine("Teszt sikeresen lefutott!");
                         }
                         // else if(options.Workdir)
