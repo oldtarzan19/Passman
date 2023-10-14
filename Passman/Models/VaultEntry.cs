@@ -91,4 +91,31 @@ public class VaultEntry
             csv.WriteRecords(vaultEntries);
         }
     }
+    
+    // Nem befejezett metódus, ezért kikommenteltem.
+   /* public void OrderBy(string item, string vaultCsvPath)
+    {
+        List<VaultEntry> vaultEntries = new List<VaultEntry>();
+        using (StreamReader reader = new(vaultCsvPath))
+        {
+            CsvConfiguration config = new(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = false
+            };
+            using CsvReader csv = new(reader, config);
+            vaultEntries = csv.GetRecords<VaultEntry>().ToList();
+        }
+
+        for (int i = 0; i < vaultEntries.Count; i++)
+        {
+            Console.WriteLine(vaultEntries[i].Website);
+        }
+        Console.WriteLine("Rendezeés:");
+        var newList = vaultEntries.OrderBy(x => x.Website).ToList();
+
+        for (int i = 0;i < newList.Count; i++)
+        {
+            Console.WriteLine(newList[i].Website);
+        }
+    } */
 }

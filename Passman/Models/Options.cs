@@ -15,6 +15,9 @@ public class Options
     [Option('t', "test", Required = false, HelpText = "Tesztelés.")]
     public bool Test { get; set; }
     
+    [Option('o', "orderby", Required = false, HelpText = "Rendezett listázás.")]
+    public bool Orderby { get; set; }
+    
     
     // [Option('w', "workdir", Required = false, HelpText = "Working directory módosítása.")]
     // public bool Workdir { get; set; }
