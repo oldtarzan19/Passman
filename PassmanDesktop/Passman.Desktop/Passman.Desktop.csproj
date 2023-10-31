@@ -8,4 +8,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Passman.Core\Passman.Core.csproj" />
+    </ItemGroup>
+
 </Project>
