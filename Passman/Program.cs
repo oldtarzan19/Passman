@@ -177,6 +177,81 @@ namespace Passman
                             Console.WriteLine("Tesztelés");
                             Console.WriteLine("Teszt sikeresen lefutott!");
                         }
+                        else if (options.Orderby)
+                        {
+                            Console.WriteLine("Rendezett listázás");
+                            Console.WriteLine("A listázáshoz jelentkezz be");
+                            Console.WriteLine("Felhasználónév: ");
+                            string username = Console.ReadLine();
+                            Console.WriteLine("Jelszó: ");
+                            string password = Console.ReadLine();
+
+                            User user = new User();
+
+                            if (user.Login(username, password, userCsvPath))
+                            {
+                                Console.WriteLine("Sikeres bejelentkezés");
+                                Console.WriteLine("Mi alapján szeretnél listázni. (Username, Website)");
+                                Console.WriteLine("Add meg: ");
+                                string orderby = Console.ReadLine();
+
+                                List<VaultEntry> allvaultEntries = new List<VaultEntry>();
+                                using (StreamReader reader = new(vaultCsvPath))
+                                {
+                                    CsvConfiguration config = new(CultureInfo.InvariantCulture)
+                                    {
+                                        HasHeaderRecord = false
+                                    };
+                                    using CsvReader csv = new(reader, config);
+                                    allvaultEntries = csv.GetRecords<VaultEntry>().ToList();
+                                }
+                                
+                                List<VaultEntry> personalvaultEntries = new List<VaultEntry>();
+                                
+                                for (int i = 0; i < allvaultEntries.Count; i++)
+                                {
+                                    if (allvaultEntries[i].UserId == username)
+                                    {
+                                        personalvaultEntries.Add(allvaultEntries[i]);
+                                    }
+                                }
+
+                                Console.WriteLine();
+
+                                User felh = user.Get(username);
+                                Console.WriteLine("Rendezett lista");
+                                var encryptedType = new EncryptedType();
+                                if (orderby == "Website")
+                                {
+                                    var newList = personalvaultEntries.OrderBy(x => x.Website).ToList();
+                                    for (int i = 0; i < newList.Count; i++)
+                                    {
+                                        Console.WriteLine("Felhasználónév: " + newList[i].Username);
+                                        EncryptedType decryptedData = encryptedType.Decrypt(felh.Email,
+                                                         newList[i].Password);
+                                        Console.WriteLine("Jelszó: " + decryptedData.Secret);
+                                        Console.WriteLine("Weboldal: " + newList[i].Website);
+                                        
+                                        Console.WriteLine();
+                                    }
+                                }
+
+                                if (orderby == "Username")
+                                {
+                                    var newList = personalvaultEntries.OrderBy(x => x.Username).ToList();
+                                    for (int i = 0; i < newList.Count; i++)
+                                    {
+                                        Console.WriteLine("Felhasználónév: " + newList[i].Username);
+                                        EncryptedType decryptedData = encryptedType.Decrypt(felh.Email,
+                                                         newList[i].Password);
+                                        Console.WriteLine("Jelszó: " + decryptedData.Secret);
+                                        Console.WriteLine("Weboldal: " + newList[i].Website);
+
+                                        Console.WriteLine();
+                                    }
+                                }
+                            }
+                        }
                         // else if(options.Workdir)
                         // {
                         //     Console.WriteLine("Munkakönyvtár módosítása");
@@ -201,41 +276,5 @@ namespace Passman
                 });
             
         }
-        
-        // private static AppConfig LoadConfig(string configPath)
-        // {
-        //     try
-        //     {
-        //         string json = File.ReadAllText(configPath);
-        //         return JsonConvert.DeserializeObject<AppConfig>(json);
-        //     }
-        //     catch (Exception e)
-        //     {
-        //         Console.WriteLine($"Hiba a konfiguráció beolvasásakor: {e.Message}");
-        //         Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        //         Console.WriteLine("A program visszaállítja az alapértelmezett munkakönyvtárat.");
-        //         return new AppConfig(); 
-        //     }
-        // }
-        //
-        // private static void SaveConfig(string configPath, AppConfig config)
-        // {
-        //     try
-        //     {
-        //         
-        //         var jsonObject = new { WorkDirectory = config.WorkDirectory };
-        //         
-        //         string json = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
-        //         
-        //         File.WriteAllText(configPath, json);
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         Console.WriteLine($"Hiba a konfiguráció mentésekor: {ex.Message}");
-        //         
-        //         Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        //         Console.WriteLine("A program visszaállítja az alapértelmezett munkakönyvtárat.");
-        //     }
-        // }
     }
 }
