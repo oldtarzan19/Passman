@@ -17,5 +17,6 @@ public partial class Form1 : Form
         
         Dao dao = new Dao();
         dao.RegisterUser("alma", "alma", "alma", "alma", "alma");
+        MessageBox.Show("Sikerült!");
     }
 }
