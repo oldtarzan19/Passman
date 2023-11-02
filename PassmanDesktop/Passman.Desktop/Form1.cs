@@ -7,6 +7,7 @@ namespace Passman.Desktop;
 
 public partial class Form1 : Form
 {
+    Dao dao = new Dao();
     public Form1()
     {
         InitializeComponent();
@@ -16,7 +17,14 @@ public partial class Form1 : Form
     {
         
         Dao dao = new Dao();
-        dao.RegisterUser("alma", "alma", "alma", "alma", "alma");
-        MessageBox.Show("Sikerült!");
+        if (dao.LoginUser("asd", "asdd"))
+        {
+            MessageBox.Show("Sikerült!");
+        }
+        else
+        {
+            MessageBox.Show("Nem sikerült!");
+        }
+        
     }
 }
