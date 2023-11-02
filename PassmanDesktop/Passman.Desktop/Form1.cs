@@ -17,8 +17,8 @@ public partial class Form1 : Form
     private void almaButton_Click(object sender, EventArgs e)
     {
         dao = new Dao();
-        dao.RegisterUser("asdd", "asdd", "asd", "asd", "asd");
-        int id = dao.LoginUser("asdd", "asdd");
+        int id = dao.LoginUser("asd", "asd");
+        dao.CreateVaultEntry("Probauser2","Probapass2","Probaurl2");
         if (id >= 0)
         {
             MessageBox.Show("Sikerült! Id: "+id);

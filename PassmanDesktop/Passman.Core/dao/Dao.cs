@@ -76,6 +76,37 @@ public class Dao
         }
     }
     
-    // Új vaultentry létrehozása
-    
+    // Új vaultentry létrehozása (id, userid, username, password, website)
+    public void CreateVaultEntry(string username, string password, string website)
+    {
+        try
+        {
+            UserInfo? userInfo = new UserInfo();
+            // UserInfo kiolvasása 
+            string jsonPath = Path.Combine("..","Passman.Core", "res", "userinfo.json");
+            if (File.Exists(jsonPath))
+            {
+                string json = File.ReadAllText(jsonPath); 
+                userInfo = JsonConvert.DeserializeObject<UserInfo>(json);
+            }
+            
+            encryptedType = new EncryptedType();
+            using var context = new PassmanDbContext();
+            context.Database.EnsureCreated(); 
+
+            
+            var vaultEntry = new VaultEntry(userInfo.UserId, username, encryptedType.Encrypt(userInfo.Email,password).Secret, website);
+            
+            
+            context.VaultEntries.Add(vaultEntry);
+
+            
+            context.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 }
