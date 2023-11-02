@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RvhhjvUNS4nM+gUVkSp3YuwHpMtfa1alZksqQHrDR9NSTuPl+ts+DoOIzpix3/q7MdL2jOl7Wklgey2l85iV5w==",
+  "dgSpecHash": "S6nyajdVOZOzo7jDmjxkPMeYTmNSZ3C9oibfVrnt3MK0GI2IYR9bJ41oh/bHcTQd4aEYlkrBO70yl/nBgbDdIA==",
   "success": true,
   "projectFilePath": "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj",
   "expectedPackageFiles": [
@@ -21,7 +21,7 @@
     "C:\\Users\\Kristóf\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Kristóf\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\Kristóf\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
-    "C:\\Users\\Kristóf\\.nuget\\packages\\sqlitepclraw.core\\2.1.4\\sqlitepclraw.core.2.1.4.nupkg.sha512",
+    "C:\\Users\\Kristóf\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\Kristóf\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Kristóf\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Kristóf\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
