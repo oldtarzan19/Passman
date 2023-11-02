@@ -10,6 +10,7 @@
       <PackageReference Include="Cryptography.Fernet" Version="1.1.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="7.0.11" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="SQLitePCLRaw.core" Version="2.1.6" />
     </ItemGroup>
 

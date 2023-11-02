@@ -7,7 +7,8 @@ namespace Passman.Desktop;
 
 public partial class Form1 : Form
 {
-    Dao dao = new Dao();
+    public static User user;
+    private Dao dao;
     public Form1()
     {
         InitializeComponent();
@@ -15,11 +16,12 @@ public partial class Form1 : Form
 
     private void almaButton_Click(object sender, EventArgs e)
     {
-        
-        Dao dao = new Dao();
-        if (dao.LoginUser("asd", "asdd"))
+        dao = new Dao();
+        dao.RegisterUser("asdd", "asdd", "asd", "asd", "asd");
+        int id = dao.LoginUser("asdd", "asdd");
+        if (id >= 0)
         {
-            MessageBox.Show("Sikerült!");
+            MessageBox.Show("Sikerült! Id: "+id);
         }
         else
         {

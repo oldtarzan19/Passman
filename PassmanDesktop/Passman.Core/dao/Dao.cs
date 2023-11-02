@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using Passman.Core.Data;
 using Passman.Core.Models;
 using Passman.Models;
@@ -8,22 +9,22 @@ namespace Passman.Core.dao;
 public class Dao
 {
     private EncryptedType encryptedType;
-    // Register a new user
+    
     public void RegisterUser(string username, string password, string email, string firstName, string lastName)
     {
         try
         {
             encryptedType = new EncryptedType();
             using var context = new PassmanDbContext();
-            context.Database.EnsureCreated(); // Ensure the database and tables are created
+            context.Database.EnsureCreated(); 
 
-            // Create a new User object
+            
             var user = new User(username, encryptedType.Hash(password), email, firstName, lastName);
-
-            // Add the new User object to the Users DbSet
+            
+            
             context.Users.Add(user);
 
-            // Save the changes to the database
+            
             context.SaveChanges();
         }
         catch (Exception e)
@@ -33,31 +34,40 @@ public class Dao
         }
     }
     
-    // Login a user (I have to use the EncryptedType class to encrypt the password)
-    public bool LoginUser(string username, string password)
+    // -1 el tér vissza ha hibás a felhasználónév egyéb esetben a userId-vel
+    public int LoginUser(string username, string password)
     {
         try
         {
             encryptedType = new EncryptedType();
             using var context = new PassmanDbContext();
-            context.Database.EnsureCreated(); // Ensure the database and tables are created
+            context.Database.EnsureCreated(); 
 
-            // Get the user from the database
+            
             var user = context.Users.FirstOrDefault(u => u.Username == username);
 
-            // Check if the user exists
+            
             if (user == null)
             {
-                return false;
+                return -1;
             }
 
-            // Check if the password is correct
+            
             if (user.Password != encryptedType.Hash(password))
             {
-                return false;
+                return -1;
             }
-
-            return true;
+            // Alap adatok elmentése a userinfo.json fájlba
+            UserInfo userInfo = new UserInfo
+            {
+                UserId = user.Id, 
+                Email = user.Email 
+            };
+            
+            string json = JsonConvert.SerializeObject(userInfo);
+            var jsonPath = Path.Combine("..","Passman.Core", "res", "userinfo.json");
+            File.WriteAllText(jsonPath, json);
+            return user.Id;
         }
         catch (Exception e)
         {
@@ -65,5 +75,7 @@ public class Dao
             throw;
         }
     }
+    
+    // Új vaultentry létrehozása
     
 }
