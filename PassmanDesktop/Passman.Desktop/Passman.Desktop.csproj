@@ -20,4 +20,10 @@
       <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.6" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Asd.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace Passman.Desktop;
 
-partial class Form1
+partial class WelcomeForm
 {
     /// <summary>
     ///  Required designer variable.
@@ -42,14 +42,14 @@ partial class Form1
         almaButton.UseVisualStyleBackColor = true;
         almaButton.Click += almaButton_Click;
         // 
-        // Form1
+        // WelcomeForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
         Controls.Add(almaButton);
-        Name = "Form1";
-        Text = "Form1";
+        Name = "WelcomeForm";
+        Text = "WelcomeForm";
         ResumeLayout(false);
     }
 
