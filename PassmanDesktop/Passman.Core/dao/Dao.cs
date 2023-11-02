@@ -109,4 +109,40 @@ public class Dao
             throw;
         }
     }
+    
+    // VaultEntry lekérdezése userId segítségével és az adatok decryptelése
+    public List<VaultEntry> GetVaultEntries()
+    {
+        try
+        {
+            UserInfo? userInfo = new UserInfo();
+            // UserInfo kiolvasása 
+            string jsonPath = Path.Combine("..","Passman.Core", "res", "userinfo.json");
+            if (File.Exists(jsonPath))
+            {
+                string json = File.ReadAllText(jsonPath); 
+                userInfo = JsonConvert.DeserializeObject<UserInfo>(json);
+            }
+            
+            encryptedType = new EncryptedType();
+            using var context = new PassmanDbContext();
+            context.Database.EnsureCreated(); 
+
+            
+            var vaultEntries = context.VaultEntries.Where(v => v.UserId == userInfo.UserId).ToList();
+            foreach (var vaultEntry in vaultEntries)
+            {
+                vaultEntry.Password = encryptedType.Decrypt(userInfo.Email, vaultEntry.Password).Secret;
+            }
+
+            
+            return vaultEntries;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
 }

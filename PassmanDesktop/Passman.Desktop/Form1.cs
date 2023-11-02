@@ -17,15 +17,12 @@ public partial class Form1 : Form
     private void almaButton_Click(object sender, EventArgs e)
     {
         dao = new Dao();
-        int id = dao.LoginUser("asd", "asd");
-        dao.CreateVaultEntry("Probauser2","Probapass2","Probaurl2");
-        if (id >= 0)
+        int id = dao.LoginUser("asdd", "asdd");
+        dao.CreateVaultEntry("pogi","pog","pog");
+        dao.GetVaultEntries();
+        foreach (var VARIABLE in dao.GetVaultEntries())
         {
-            MessageBox.Show("Sikerült! Id: "+id);
-        }
-        else
-        {
-            MessageBox.Show("Nem sikerült!");
+            MessageBox.Show(VARIABLE.Password);
         }
         
     }
