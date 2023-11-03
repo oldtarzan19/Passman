@@ -11,7 +11,7 @@ public partial class MainForm : Form
         InitializeDataGridView();
     }
 
-    private void InitializeDataGridView()
+    public void InitializeDataGridView()
     {
 
         dataGridView.AutoGenerateColumns = false;
@@ -19,8 +19,15 @@ public partial class MainForm : Form
 
         Dao dao = new Dao();
         List<VaultEntry> list = dao.GetVaultEntries();
-        dataGridView.RowCount = list.Count;
-
+        if (list.Count == 0)
+        {
+            dataGridView.RowCount = 1;
+            dataGridView.ColumnCount = 3;
+        }
+        else
+        {
+            dataGridView.RowCount = list.Count;
+        }
         for (int i = 0; i < list.Count(); i++)
         {
             dataGridView.Rows[i].Cells["Username"].Value = list[i].Username;
@@ -38,7 +45,7 @@ public partial class MainForm : Form
 
     private void addButton_Click(object sender, EventArgs e)
     {
-        AddForm addForm = new AddForm();
+        AddForm addForm = new AddForm(this);
         addForm.ShowDialog();
     }
 }

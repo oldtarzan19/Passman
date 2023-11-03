@@ -45,6 +45,7 @@ partial class WelcomeForm
         label5 = new Label();
         label6 = new Label();
         label7 = new Label();
+        exitButton = new Button();
         SuspendLayout();
         // 
         // loginButton
@@ -181,11 +182,22 @@ partial class WelcomeForm
         label7.TabIndex = 15;
         label7.Text = "Vezeték név";
         // 
+        // exitButton
+        // 
+        exitButton.Location = new Point(795, 541);
+        exitButton.Name = "exitButton";
+        exitButton.Size = new Size(94, 29);
+        exitButton.TabIndex = 16;
+        exitButton.Text = "Exit";
+        exitButton.UseVisualStyleBackColor = true;
+        exitButton.Click += exitButton_Click;
+        // 
         // WelcomeForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(914, 600);
+        Controls.Add(exitButton);
         Controls.Add(label7);
         Controls.Add(label6);
         Controls.Add(label5);
@@ -227,4 +239,5 @@ partial class WelcomeForm
     private Label label5;
     private Label label6;
     private Label label7;
+    private Button exitButton;
 }

@@ -48,7 +48,7 @@ partial class MainForm
         dataGridView.Name = "dataGridView";
         dataGridView.RowHeadersWidth = 51;
         dataGridView.RowTemplate.Height = 29;
-        dataGridView.Size = new Size(428, 183);
+        dataGridView.Size = new Size(437, 183);
         dataGridView.TabIndex = 0;
         // 
         // Username

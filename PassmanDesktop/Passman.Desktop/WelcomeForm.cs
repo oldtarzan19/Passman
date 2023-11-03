@@ -56,4 +56,9 @@ public partial class WelcomeForm : Form
             MessageBox.Show("Sikertelen regisztráció!");
         }
     }
+
+    private void exitButton_Click(object sender, EventArgs e)
+    {
+        Application.Exit();
+    }
 }

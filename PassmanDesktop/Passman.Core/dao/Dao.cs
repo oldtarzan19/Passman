@@ -26,6 +26,17 @@ public class Dao
 
             
             context.SaveChanges();
+            
+            // Alap adatok elmentése a userinfo.json fájlba
+            UserInfo userInfo = new UserInfo
+            {
+                UserId = user.Id, 
+                Email = user.Email 
+            };
+            
+            string json = JsonConvert.SerializeObject(userInfo);
+            var jsonPath = Path.Combine("..","Passman.Core", "res", "userinfo.json");
+            File.WriteAllText(jsonPath, json);
             return true;
         }
         catch (Exception e)
