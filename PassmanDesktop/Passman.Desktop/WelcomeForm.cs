@@ -47,11 +47,11 @@ public partial class WelcomeForm : Form
         if (dao.RegisterUser(username, password, email, firstname, lastname))
         {
             MessageBox.Show("Sikeres regisztráció!");
-            // TODO: Jelszó kitakarása
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.Show();
-        }else
+        }
+        else
         {
             MessageBox.Show("Sikertelen regisztráció!");
         }

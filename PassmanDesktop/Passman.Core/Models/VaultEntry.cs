@@ -28,4 +28,11 @@ public class VaultEntry
         Password = password;
         Website = website;
     }
+
+    public VaultEntry(string username, string password, string website)
+    {
+        Username = username;
+        Password = password;
+        Website = website;
+    }
 }

@@ -31,11 +31,65 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
-        this.components = new System.ComponentModel.Container();
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(800, 450);
-        this.Text = "MainForm";
+        dataGridView = new DataGridView();
+        Username = new DataGridViewTextBoxColumn();
+        Password = new DataGridViewTextBoxColumn();
+        Website = new DataGridViewTextBoxColumn();
+        ((ISupportInitialize)dataGridView).BeginInit();
+        SuspendLayout();
+        // 
+        // dataGridView
+        // 
+        dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dataGridView.Columns.AddRange(new DataGridViewColumn[] { Username, Password, Website });
+        dataGridView.Location = new Point(12, 12);
+        dataGridView.Name = "dataGridView";
+        dataGridView.RowHeadersWidth = 51;
+        dataGridView.RowTemplate.Height = 29;
+        dataGridView.Size = new Size(776, 188);
+        dataGridView.TabIndex = 0;
+        // 
+        // Username
+        // 
+        Username.HeaderText = "Felhasznalonev";
+        Username.MinimumWidth = 6;
+        Username.Name = "Username";
+        Username.ReadOnly = true;
+        Username.Width = 125;
+        // 
+        // Password
+        // 
+        Password.HeaderText = "Jelszo";
+        Password.MinimumWidth = 6;
+        Password.Name = "Password";
+        Password.ReadOnly = true;
+        Password.Width = 125;
+        // 
+        // Website
+        // 
+        Website.HeaderText = "Weboldal";
+        Website.MinimumWidth = 6;
+        Website.Name = "Website";
+        Website.ReadOnly = true;
+        Website.Width = 125;
+        // 
+        // MainForm
+        // 
+        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(800, 450);
+        Controls.Add(dataGridView);
+        Name = "MainForm";
+        Text = "MainForm";
+        Load += MainForm_Load;
+        ((ISupportInitialize)dataGridView).EndInit();
+        ResumeLayout(false);
     }
 
     #endregion
+
+    private DataGridView dataGridView;
+    private DataGridViewTextBoxColumn Username;
+    private DataGridViewTextBoxColumn Password;
+    private DataGridViewTextBoxColumn Website;
 }

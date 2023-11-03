@@ -138,8 +138,14 @@ public class Dao
                 vaultEntry.Password = encryptedType.Decrypt(userInfo.Email, vaultEntry.Password).Secret;
             }
 
+            List<VaultEntry> vault2 = new List<VaultEntry>();
+            foreach (var vaultEntry in vaultEntries)
+            {
+                vault2.Add(new VaultEntry(vaultEntry.Username, vaultEntry.Password, vaultEntry.Website));
+            }
+
             
-            return vaultEntries;
+            return vault2;
         }
         catch (Exception e)
         {

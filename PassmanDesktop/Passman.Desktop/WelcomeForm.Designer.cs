@@ -104,6 +104,7 @@ partial class WelcomeForm
         // 
         registerPasswordTextBox.Location = new Point(548, 125);
         registerPasswordTextBox.Name = "registerPasswordTextBox";
+        registerPasswordTextBox.PasswordChar = '*';
         registerPasswordTextBox.Size = new Size(228, 27);
         registerPasswordTextBox.TabIndex = 6;
         // 
