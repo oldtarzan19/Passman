@@ -24,6 +24,9 @@
       <Compile Update="MainForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="AddForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

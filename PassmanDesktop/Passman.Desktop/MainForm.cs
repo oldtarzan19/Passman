@@ -35,4 +35,10 @@ public partial class MainForm : Form
     {
         Application.Exit();
     }
+
+    private void addButton_Click(object sender, EventArgs e)
+    {
+        AddForm addForm = new AddForm();
+        addForm.ShowDialog();
+    }
 }
