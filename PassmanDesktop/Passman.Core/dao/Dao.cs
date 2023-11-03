@@ -10,7 +10,7 @@ public class Dao
 {
     private EncryptedType encryptedType;
     
-    public void RegisterUser(string username, string password, string email, string firstName, string lastName)
+    public bool RegisterUser(string username, string password, string email, string firstName, string lastName)
     {
         try
         {
@@ -26,12 +26,15 @@ public class Dao
 
             
             context.SaveChanges();
+            return true;
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
+
+        return false;
     }
     
     // -1 el tér vissza ha hibás a felhasználónév egyéb esetben a userId-vel
