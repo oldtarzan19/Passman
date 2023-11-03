@@ -13,27 +13,26 @@ public partial class MainForm : Form
 
     private void InitializeDataGridView()
     {
-        
+
         dataGridView.AutoGenerateColumns = false;
 
-        
+
         Dao dao = new Dao();
         List<VaultEntry> list = dao.GetVaultEntries();
         dataGridView.RowCount = list.Count;
-        //dataGridView.DataSource = dao.GetVaultEntries();
-        
+
         for (int i = 0; i < list.Count(); i++)
         {
             dataGridView.Rows[i].Cells["Username"].Value = list[i].Username;
             dataGridView.Rows[i].Cells["Password"].Value = list[i].Password;
             dataGridView.Rows[i].Cells["Website"].Value = list[i].Website;
         }
-        
+
         dataGridView.Refresh();
     }
 
-    private void MainForm_Load(object sender, EventArgs e)
+    private void exitButton_Click(object sender, EventArgs e)
     {
-
+        Application.Exit();
     }
 }

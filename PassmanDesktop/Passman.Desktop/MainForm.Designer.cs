@@ -35,6 +35,8 @@ partial class MainForm
         Username = new DataGridViewTextBoxColumn();
         Password = new DataGridViewTextBoxColumn();
         Website = new DataGridViewTextBoxColumn();
+        exitButton = new Button();
+        addButton = new Button();
         ((ISupportInitialize)dataGridView).BeginInit();
         SuspendLayout();
         // 
@@ -42,11 +44,11 @@ partial class MainForm
         // 
         dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dataGridView.Columns.AddRange(new DataGridViewColumn[] { Username, Password, Website });
-        dataGridView.Location = new Point(12, 12);
+        dataGridView.Location = new Point(165, 12);
         dataGridView.Name = "dataGridView";
         dataGridView.RowHeadersWidth = 51;
         dataGridView.RowTemplate.Height = 29;
-        dataGridView.Size = new Size(776, 188);
+        dataGridView.Size = new Size(428, 183);
         dataGridView.TabIndex = 0;
         // 
         // Username
@@ -73,15 +75,35 @@ partial class MainForm
         Website.ReadOnly = true;
         Website.Width = 125;
         // 
+        // exitButton
+        // 
+        exitButton.Location = new Point(549, 400);
+        exitButton.Name = "exitButton";
+        exitButton.Size = new Size(94, 29);
+        exitButton.TabIndex = 1;
+        exitButton.Text = "Exit";
+        exitButton.UseVisualStyleBackColor = true;
+        exitButton.Click += exitButton_Click;
+        // 
+        // addButton
+        // 
+        addButton.Location = new Point(682, 400);
+        addButton.Name = "addButton";
+        addButton.Size = new Size(94, 29);
+        addButton.TabIndex = 2;
+        addButton.Text = "Add";
+        addButton.UseVisualStyleBackColor = true;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(addButton);
+        Controls.Add(exitButton);
         Controls.Add(dataGridView);
         Name = "MainForm";
         Text = "MainForm";
-        Load += MainForm_Load;
         ((ISupportInitialize)dataGridView).EndInit();
         ResumeLayout(false);
     }
@@ -92,4 +114,6 @@ partial class MainForm
     private DataGridViewTextBoxColumn Username;
     private DataGridViewTextBoxColumn Password;
     private DataGridViewTextBoxColumn Website;
+    private Button exitButton;
+    private Button addButton;
 }
