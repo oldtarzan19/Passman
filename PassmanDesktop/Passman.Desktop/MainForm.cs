@@ -1,8 +1,8 @@
 namespace Passman.Desktop;
 
-public partial class Asd : Form
+public partial class MainForm : Form
 {
-    public Asd()
+    public MainForm()
     {
         InitializeComponent();
     }

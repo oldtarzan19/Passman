@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace Passman.Desktop;
 
-partial class Asd
+partial class MainForm
 {
     /// <summary>
     /// Required designer variable.
@@ -34,7 +34,7 @@ partial class Asd
         this.components = new System.ComponentModel.Container();
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.ClientSize = new System.Drawing.Size(800, 450);
-        this.Text = "Asd";
+        this.Text = "MainForm";
     }
 
     #endregion

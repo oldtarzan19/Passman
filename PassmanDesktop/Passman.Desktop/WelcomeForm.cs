@@ -14,13 +14,35 @@ public partial class WelcomeForm : Form
         InitializeComponent();
     }
 
-    private void almaButton_Click(object sender, EventArgs e)
+
+    private void loginButton_Click(object sender, EventArgs e)
     {
-        Asd asd = new Asd();
-        asd.Show();
-        // Close the current form
-        
+        string username = userNameTextBox.Text;
+        string password = passwordTextBox.Text;
 
+        dao = new Dao();
+        int userId = dao.LoginUser(username, password);
+        if (userId == -1)
+        {
+            MessageBox.Show("Hibás felhasználónév vagy jelszó!");
+        }
+        else
+        {
+            MessageBox.Show("Sikeres bejelentkezés!");
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
+    }
 
+    private void registerButton_Click(object sender, EventArgs e)
+    {
+        string username = registerUsernameTextBox.Text;
+        string password = registerPasswordTextBox.Text;
+        string email = emailTextBox.Text;
+        string firstname = firstNameTextBox.Text;
+        string lastname = lastNameTextBox.Text;
+
+        MessageBox.Show($"{username} {password} {email} {firstname} {lastname}");
     }
 }

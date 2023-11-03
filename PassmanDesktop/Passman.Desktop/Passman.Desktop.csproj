@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Asd.cs">
+      <Compile Update="MainForm.cs">
         <SubType>Form</SubType>
       </Compile>
     </ItemGroup>
