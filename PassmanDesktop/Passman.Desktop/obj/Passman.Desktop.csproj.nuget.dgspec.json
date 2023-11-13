@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Desktop\\Passman.Desktop.csproj": {}
+    "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Desktop\\Passman.Desktop.csproj": {}
   },
   "projects": {
-    "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj": {
+    "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj",
         "projectName": "Passman.Core",
-        "projectPath": "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj",
-        "packagesPath": "C:\\Users\\Kristóf\\.nuget\\packages\\",
-        "outputPath": "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Core\\obj\\",
+        "projectPath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj",
+        "packagesPath": "C:\\Users\\Kristof\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Kristóf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Kristof\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,25 +77,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Desktop\\Passman.Desktop.csproj": {
+    "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Desktop\\Passman.Desktop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Desktop\\Passman.Desktop.csproj",
+        "projectUniqueName": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Desktop\\Passman.Desktop.csproj",
         "projectName": "Passman.Desktop",
-        "projectPath": "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Desktop\\Passman.Desktop.csproj",
-        "packagesPath": "C:\\Users\\Kristóf\\.nuget\\packages\\",
-        "outputPath": "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Desktop\\obj\\",
+        "projectPath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Desktop\\Passman.Desktop.csproj",
+        "packagesPath": "C:\\Users\\Kristof\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Desktop\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Kristóf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Kristof\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,8 +105,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj": {
-                "projectPath": "C:\\git_repok\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj"
+              "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj": {
+                "projectPath": "C:\\Users\\Kristof\\Desktop\\Alkfejl2\\Beadando 1\\Passman\\PassmanDesktop\\Passman.Core\\Passman.Core.csproj"
               }
             }
           }
@@ -169,7 +161,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

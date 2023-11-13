@@ -5,10 +5,13 @@ namespace Passman.Desktop;
 
 public partial class MainForm : Form
 {
+    private Dao dao;
     public MainForm()
     {
         InitializeComponent();
         InitializeDataGridView();
+        dao = new Dao();
+        LoadDataIntoComboBox();
     }
 
     public void InitializeDataGridView()
@@ -47,5 +50,44 @@ public partial class MainForm : Form
     {
         AddForm addForm = new AddForm(this);
         addForm.ShowDialog();
+    }
+
+    private void delete_button_Click(object sender, EventArgs e)
+    {
+        if (comboBox1.SelectedItem != null)
+        {
+            DialogResult result = MessageBox.Show("Biztos törölni akarod?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                dao.DeleteVaultEntryByWebsite(comboBox1.SelectedItem.ToString());
+                RefreshComboBox();
+            }
+
+            // Frissítsük a ComboBox-ot
+
+
+        }
+    }
+
+    private void RefreshComboBox()
+    {
+        comboBox1.Items.Clear();
+        LoadDataIntoComboBox();
+    }
+
+    private void LoadDataIntoComboBox()
+    {
+        comboBox1.Items.Add("Válassz egy weboldalt!");
+        List<VaultEntry> vaultEntries = dao.GetVaultEntries();
+
+        foreach (var VARIABLE in vaultEntries)
+        {
+            comboBox1.Items.Add(VARIABLE.Website);
+        }
+    }
+
+    private void update_gridview_Click(object sender, EventArgs e)
+    {
+        InitializeDataGridView();
     }
 }

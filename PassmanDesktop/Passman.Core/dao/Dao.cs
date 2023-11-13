@@ -164,5 +164,33 @@ public class Dao
             throw;
         }
     }
-    
+
+    public void DeleteVaultEntryByWebsite(String website)
+    {
+        try
+        {
+            using var context = new PassmanDbContext();
+            context.Database.EnsureCreated(); 
+
+            
+            var vaultEntry = context.VaultEntries.FirstOrDefault(v => v.Website == website);
+
+            
+            if (vaultEntry == null)
+            {
+                return;
+            }
+            
+            
+            context.VaultEntries.Remove(vaultEntry);
+
+            
+            context.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 }
