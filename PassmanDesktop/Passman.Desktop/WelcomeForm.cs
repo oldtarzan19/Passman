@@ -43,19 +43,53 @@ public partial class WelcomeForm : Form
         string firstname = firstNameTextBox.Text;
         string lastname = lastNameTextBox.Text;
 
-        dao = new Dao();
-        if (dao.RegisterUser(username, password, email, firstname, lastname))
+        if (IsPasswordValid(password))
         {
-            MessageBox.Show("Sikeres regisztráció!");
-            this.Hide();
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
+            dao = new Dao();
+            if (dao.RegisterUser(username, password, email, firstname, lastname))
+            {
+                MessageBox.Show("Sikeres regisztráció!");
+                this.Hide();
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sikertelen regisztráció!");
+            }
         }
         else
         {
-            MessageBox.Show("Sikertelen regisztráció!");
-        }
+            MessageBox.Show("Hibás jelszó");
+        }   
     }
+    
+    
+    private bool IsPasswordValid(string password)
+    {
+        
+        return password.Length >= 6 && 
+               ContainsUppercaseLetter(password) && 
+               ContainsLowercaseLetter(password) && 
+               ContainsNumber(password);
+    }
+
+
+    private bool ContainsUppercaseLetter(string password)
+    {
+        return password.Any(char.IsUpper);
+    }
+
+    private bool ContainsLowercaseLetter(string password)
+    {
+        return password.Any(char.IsLower);
+    }
+
+    private bool ContainsNumber(string password)
+    {
+        return password.Any(char.IsDigit);
+    }
+    
 
     private void exitButton_Click(object sender, EventArgs e)
     {
