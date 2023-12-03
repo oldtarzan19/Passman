@@ -49,4 +49,70 @@ public class EncryptedType
             return builder.ToString();
         }
     }
+    
+    public string GetHashedKey(string email)
+    {
+        using (SHA256 sha256Hash = SHA256.Create())
+        {
+            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(email));
+            return Encoding.UTF8.GetString(bytes, 0, 32);
+        }
+    }
+
+    public string EncryptString(string email, string plainText)
+    {
+        string key = GetHashedKey(email);
+        byte[] iv = new byte[16];
+        byte[] array;
+
+        using (Aes aes = Aes.Create())
+        {
+            aes.Key = Encoding.UTF8.GetBytes(key);
+            aes.IV = iv;
+
+            ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                {
+                    using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                    {
+                        streamWriter.Write(plainText);
+                    }
+
+                    array = memoryStream.ToArray();
+                }
+            }
+        }
+
+        return Convert.ToBase64String(array);
+    }
+
+    public string DecryptString(string email, string cipherText)
+    {
+        string key = GetHashedKey(email);
+        byte[] iv = new byte[16];
+        byte[] buffer = Convert.FromBase64String(cipherText);
+
+        using (Aes aes = Aes.Create())
+        {
+            aes.Key = Encoding.UTF8.GetBytes(key);
+            aes.IV = iv;
+
+            ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+            using (MemoryStream memoryStream = new MemoryStream(buffer))
+            {
+                using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                {
+                    using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                    {
+                        return streamReader.ReadToEnd();
+                    }
+                }
+            }
+        }
+    }
+
 }

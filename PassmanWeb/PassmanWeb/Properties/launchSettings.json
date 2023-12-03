@@ -3,25 +3,16 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:63936",
-      "sslPort": 44314
+      "applicationUrl": "http://localhost:14897",
+      "sslPort": 44349
     }
   },
   "profiles": {
-    "http": {
+    "PassmanWeb": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5228",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "https": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": "https://localhost:7047;http://localhost:5228",
+      "applicationUrl": "https://localhost:7028;http://localhost:5041",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

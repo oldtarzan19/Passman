@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using PassmanWeb.Controllers;
+using SQLitePCL;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Initialize SQLite
+SQLitePCL.Batteries.Init();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

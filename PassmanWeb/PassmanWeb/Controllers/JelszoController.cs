@@ -25,16 +25,10 @@ public class JelszoController : Controller
         
         var user = _context.Users.FirstOrDefault(u => u.Username == username);
         var rawVaultEntries = _context.VaultEntries.Where(v => v.UserId == user.Id).ToList();
-        
-        var vaultEntries = new List<VaultEntry>();
-        EncryptedType encryptedType = new EncryptedType();
-        foreach (var rawVaultEntry in rawVaultEntries)
-        {
-            vaultEntries.Add(new VaultEntry(rawVaultEntry.Id, rawVaultEntry.UserId, rawVaultEntry.Username, encryptedType.Decrypt(rawVaultEntry.Password, user.Email).Secret, rawVaultEntry.Website));
-        }
+       
 
         // Pass the vault entries to the view
-        return View(vaultEntries);
+        return View(rawVaultEntries);
     }
 
     [HttpGet]
@@ -59,7 +53,7 @@ public class JelszoController : Controller
         }
         var user = _context.Users.FirstOrDefault(u => u.Username == usernameSession);
         EncryptedType encryptedType = new EncryptedType();
-        if (user != null) _context.VaultEntries.Add(new VaultEntry(user.Id, username, encryptedType.Encrypt(password, user.Email).Secret, website));
+        if (user != null) _context.VaultEntries.Add(new VaultEntry(user.Id, username, encryptedType.EncryptString(password, user.Email), website));
         _context.SaveChanges();
         return RedirectToAction("JelszoMainPage", "Jelszo");
     }
