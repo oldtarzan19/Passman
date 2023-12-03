@@ -41,7 +41,6 @@ public class UserController: Controller
     }
     
     [HttpGet]
-    [Authorize]
     public IActionResult Register()
     {
         return View();
