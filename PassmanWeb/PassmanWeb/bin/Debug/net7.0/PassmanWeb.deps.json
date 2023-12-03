@@ -8,20 +8,19 @@
     ".NETCoreApp,Version=v7.0": {
       "PassmanWeb/1.0.0": {
         "dependencies": {
-          "Cryptography.Fernet": "1.1.1",
+          "Cryptography.Fernet": "1.1.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.13",
-          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.13",
-          "Microsoft.IdentityModel.Tokens": "7.0.3"
+          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.13"
         },
         "runtime": {
           "PassmanWeb.dll": {}
         }
       },
-      "Cryptography.Fernet/1.1.1": {
+      "Cryptography.Fernet/1.1.0": {
         "runtime": {
           "lib/net6.0/Cryptography.Fernet.dll": {
-            "assemblyVersion": "1.1.1.0",
-            "fileVersion": "1.1.1.0"
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
           }
         }
       },
@@ -166,36 +165,6 @@
         }
       },
       "Microsoft.Extensions.Primitives/7.0.0": {},
-      "Microsoft.IdentityModel.Abstractions/7.0.3": {
-        "runtime": {
-          "lib/net6.0/Microsoft.IdentityModel.Abstractions.dll": {
-            "assemblyVersion": "7.0.3.0",
-            "fileVersion": "7.0.3.41017"
-          }
-        }
-      },
-      "Microsoft.IdentityModel.Logging/7.0.3": {
-        "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "7.0.3"
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.IdentityModel.Logging.dll": {
-            "assemblyVersion": "7.0.3.0",
-            "fileVersion": "7.0.3.41017"
-          }
-        }
-      },
-      "Microsoft.IdentityModel.Tokens/7.0.3": {
-        "dependencies": {
-          "Microsoft.IdentityModel.Logging": "7.0.3"
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.IdentityModel.Tokens.dll": {
-            "assemblyVersion": "7.0.3.0",
-            "fileVersion": "7.0.3.41017"
-          }
-        }
-      },
       "Mono.TextTemplating/2.2.1": {
         "dependencies": {
           "System.CodeDom": "4.4.0"
@@ -383,12 +352,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Cryptography.Fernet/1.1.1": {
+    "Cryptography.Fernet/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bL+6XgZZO3IOgppz9liD95UXcjGf85OEzPMV7WvH8xwdBBZ5dF8VkNkL5047K/HOdAuiI3NEs+Iw2MxKpW+FbQ==",
-      "path": "cryptography.fernet/1.1.1",
-      "hashPath": "cryptography.fernet.1.1.1.nupkg.sha512"
+      "sha512": "sha512-6N2O/lSNlfQD8wDPBVarRnMrDmB2qmeQOyJQpaLjlgz4fb1RYBBOovVNj27hyV2eHiRDWkBPJ/PD1V2IiLy8mQ==",
+      "path": "cryptography.fernet/1.1.0",
+      "hashPath": "cryptography.fernet.1.1.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -522,27 +491,6 @@
       "sha512": "sha512-um1KU5kxcRp3CNuI8o/GrZtD4AIOXDk+RLsytjZ9QPok3ttLUelLKpilVPuaFT3TFjOhSibUAso0odbOaCDj3Q==",
       "path": "microsoft.extensions.primitives/7.0.0",
       "hashPath": "microsoft.extensions.primitives.7.0.0.nupkg.sha512"
-    },
-    "Microsoft.IdentityModel.Abstractions/7.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cfPUWdjigLIRIJSKz3uaZxShgf86RVDXHC1VEEchj1gnY25akwPYpbrfSoIGDCqA9UmOMdlctq411+2pAViFow==",
-      "path": "microsoft.identitymodel.abstractions/7.0.3",
-      "hashPath": "microsoft.identitymodel.abstractions.7.0.3.nupkg.sha512"
-    },
-    "Microsoft.IdentityModel.Logging/7.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-b6GbGO+2LOTBEccHhqoJsOsmemG4A/MY+8H0wK/ewRhiG+DCYwEnucog1cSArPIY55zcn+XdZl0YEiUHkpDISQ==",
-      "path": "microsoft.identitymodel.logging/7.0.3",
-      "hashPath": "microsoft.identitymodel.logging.7.0.3.nupkg.sha512"
-    },
-    "Microsoft.IdentityModel.Tokens/7.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-wB+LlbDjhnJ98DULjmFepqf9eEMh/sDs6S6hFh68iNRHmwollwhxk+nbSSfpA5+j+FbRyNskoaY4JsY1iCOKCg==",
-      "path": "microsoft.identitymodel.tokens/7.0.3",
-      "hashPath": "microsoft.identitymodel.tokens.7.0.3.nupkg.sha512"
     },
     "Mono.TextTemplating/2.2.1": {
       "type": "package",

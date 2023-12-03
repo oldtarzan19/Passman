@@ -46,7 +46,7 @@
           "dependencies": {
             "Cryptography.Fernet": {
               "target": "Package",
-              "version": "[1.1.1, )"
+              "version": "[1.1.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -57,10 +57,6 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[7.0.13, )"
-            },
-            "Microsoft.IdentityModel.Tokens": {
-              "target": "Package",
-              "version": "[7.0.3, )"
             }
           },
           "imports": [

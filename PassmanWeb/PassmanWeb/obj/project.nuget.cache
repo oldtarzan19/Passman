@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NHkkSkU3aDUXbBXJ03mSlL5V4Z5PfTKQRyeOX3L2lyqMaEpoKVfsGgSIVWkZeWV2v0VM5b3Wbq/IhRl87sYIuw==",
+  "dgSpecHash": "Y2gDy3oOG56IeeC8cj2F0DfPebB9nz/2aXJHGD8VcVMzArCTVv383PNo+AZdtEOGpQd5Dev+U6eY3z8ljmHrPA==",
   "success": true,
   "projectFilePath": "D:\\Kristof dolgok\\Desktop\\Passman\\PassmanWeb\\PassmanWeb\\PassmanWeb.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Kristof\\.nuget\\packages\\cryptography.fernet\\1.1.1\\cryptography.fernet.1.1.1.nupkg.sha512",
+    "C:\\Users\\Kristof\\.nuget\\packages\\cryptography.fernet\\1.1.0\\cryptography.fernet.1.1.0.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.13\\microsoft.data.sqlite.core.7.0.13.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
@@ -24,9 +24,6 @@
     "C:\\Users\\Kristof\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
-    "C:\\Users\\Kristof\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.0.3\\microsoft.identitymodel.abstractions.7.0.3.nupkg.sha512",
-    "C:\\Users\\Kristof\\.nuget\\packages\\microsoft.identitymodel.logging\\7.0.3\\microsoft.identitymodel.logging.7.0.3.nupkg.sha512",
-    "C:\\Users\\Kristof\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.0.3\\microsoft.identitymodel.tokens.7.0.3.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.4\\sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
     "C:\\Users\\Kristof\\.nuget\\packages\\sqlitepclraw.core\\2.1.4\\sqlitepclraw.core.2.1.4.nupkg.sha512",

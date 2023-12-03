@@ -22,22 +22,29 @@ public class UserController: Controller
     [HttpPost]
     public IActionResult Login(string username, string password)
     {
-        EncryptedType encryptedType = new EncryptedType();
-        
-        var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == encryptedType.Hash(password));
-
-        if (user == null)
+        if (username.Trim().Length!=0 && password.Trim().Length!=0)
         {
-            // User not found
+            EncryptedType encryptedType = new EncryptedType();
+        
+            var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == encryptedType.Hash(password));
+
+            if (user == null)
+            {
+                // User not found
+                return View();
+            }
+            else
+            {
+                // Add the user to the session
+                HttpContext.Session.SetString("Username", user.Username);
+                HttpContext.Session.SetString("Email", user.Email);
+                return RedirectToAction("Index", "Home");
+            }
+        }else
+        {
             return View();
         }
-        else
-        {
-            // Add the user to the session
-            HttpContext.Session.SetString("Username", user.Username);
-            HttpContext.Session.SetString("Email", user.Email);
-            return RedirectToAction("Index", "Home");
-        }
+        
     }
     
     [HttpGet]

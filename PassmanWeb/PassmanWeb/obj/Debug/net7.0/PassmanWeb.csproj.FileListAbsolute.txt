@@ -37,9 +37,6 @@ D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\Microso
 D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\Mono.TextTemplating.dll
 D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\SQLitePCLRaw.batteries_v2.dll
 D:\Kristof dolgok\Desktop\Passman\PassmanWeb\PassmanWeb\bin\Debug\net7.0\SQLitePCLRaw.core.dll

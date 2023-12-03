@@ -14,7 +14,7 @@ public class JelszoController : Controller
         _context = context;
     }
     [HttpGet]
-    public IActionResult MainPage()
+    public IActionResult JelszoMainPage()
     {
         var username = HttpContext.Session.GetString("Username");
         if (string.IsNullOrEmpty(username))
@@ -22,7 +22,19 @@ public class JelszoController : Controller
             // Redirect to a login action
             return RedirectToAction("Login", "User");
         }
-        return View();
+        
+        var user = _context.Users.FirstOrDefault(u => u.Username == username);
+        var rawVaultEntries = _context.VaultEntries.Where(v => v.UserId == user.Id).ToList();
+        
+        var vaultEntries = new List<VaultEntry>();
+        EncryptedType encryptedType = new EncryptedType();
+        foreach (var rawVaultEntry in rawVaultEntries)
+        {
+            vaultEntries.Add(new VaultEntry(rawVaultEntry.Id, rawVaultEntry.UserId, rawVaultEntry.Username, encryptedType.Decrypt(rawVaultEntry.Password, user.Email).Secret, rawVaultEntry.Website));
+        }
+
+        // Pass the vault entries to the view
+        return View(vaultEntries);
     }
 
     [HttpGet]
@@ -43,12 +55,32 @@ public class JelszoController : Controller
         var usernameSession = HttpContext.Session.GetString("Username");
         if (string.IsNullOrEmpty(usernameSession))
         {
-            return RedirectToAction("MainPage", "Jelszo");
+            return RedirectToAction("JelszoMainPage", "Jelszo");
         }
         var user = _context.Users.FirstOrDefault(u => u.Username == usernameSession);
         EncryptedType encryptedType = new EncryptedType();
         if (user != null) _context.VaultEntries.Add(new VaultEntry(user.Id, username, encryptedType.Encrypt(password, user.Email).Secret, website));
         _context.SaveChanges();
-        return RedirectToAction("MainPage", "Jelszo");
+        return RedirectToAction("JelszoMainPage", "Jelszo");
+    }
+
+    public IActionResult Delete(string id)
+    {
+        var username = HttpContext.Session.GetString("Username");
+       
+        var user = _context.Users.FirstOrDefault(u => u.Username == username);
+        var vaultEntry = _context.VaultEntries.FirstOrDefault(v => v.Id == int.Parse(id));
+        if (vaultEntry != null && user != null && vaultEntry.UserId == user.Id)
+        {
+            _context.VaultEntries.Remove(vaultEntry);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("JelszoMainPage", "Jelszo");
+    }
+    
+
+    public IActionResult Edit()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -7,13 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Cryptography.Fernet" Version="1.1.1" />
+      <PackageReference Include="Cryptography.Fernet" Version="1.1.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.13" />
-      <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.3" />
     </ItemGroup>
 
     <ItemGroup>
