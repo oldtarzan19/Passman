@@ -65,12 +65,13 @@ public class UserController: Controller
             // User not found
             _context.Users.Add(new User(username, encryptedType.Hash(password), email, firstName, lastName));
             _context.SaveChanges();
-            return RedirectToAction("Login");
+            HttpContext.Session.SetString("Username", username);
+            HttpContext.Session.SetString("Email", email);
+            return RedirectToAction("JelszoMainPage", "Jelszo");
         }
         else
         {
-            HttpContext.Session.SetString("Username", username);
-            HttpContext.Session.SetString("Email", email);
+            
             return RedirectToAction("Index", "Home");
         }
     }

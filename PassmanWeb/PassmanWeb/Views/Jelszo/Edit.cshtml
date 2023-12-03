@@ -1,0 +1,19 @@
+@model VaultEntry
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Edit Vault</h2>
+
+<form method="post" action="">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" value="@Model.Username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" value="@Model.Password"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="website" name="website" value="@Model.Website"><br>
+<input type="submit" value="Edit">
+</form>
+```

@@ -20,12 +20,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Kristof dolgok/Desktop/Passman/PassmanWeb/PassmanWeb/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Kristof dolgok/Desktop/Passman/PassmanWeb/PassmanWeb/Views/Jelszo/addVaultEntry.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSmVsc3pvXGFkZFZhdWx0RW50cnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kristof dolgok/Desktop/Passman/PassmanWeb/PassmanWeb/Views/Jelszo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSmVsc3pvXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Kristof dolgok/Desktop/Passman/PassmanWeb/PassmanWeb/Views/Jelszo/JelszoMainPage.cshtml]

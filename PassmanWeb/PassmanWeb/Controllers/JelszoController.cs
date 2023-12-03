@@ -53,7 +53,7 @@ public class JelszoController : Controller
         }
         var user = _context.Users.FirstOrDefault(u => u.Username == usernameSession);
         EncryptedType encryptedType = new EncryptedType();
-        if (user != null) _context.VaultEntries.Add(new VaultEntry(user.Id, username, encryptedType.EncryptString(password, user.Email), website));
+        if (user != null) _context.VaultEntries.Add(new VaultEntry(user.Id, username, password, website));
         _context.SaveChanges();
         return RedirectToAction("JelszoMainPage", "Jelszo");
     }
@@ -73,8 +73,57 @@ public class JelszoController : Controller
     }
     
 
-    public IActionResult Edit()
+    public IActionResult Edit(string id)
     {
-        throw new NotImplementedException();
+        var username = HttpContext.Session.GetString("Username");
+        if (string.IsNullOrEmpty(username))
+        {
+            // Redirect to a login action
+            return RedirectToAction("Login", "User");
+        }
+        
+        var user = _context.Users.FirstOrDefault(u => u.Username == username);
+        var vaultEntry = _context.VaultEntries.FirstOrDefault(v => v.Id == int.Parse(id));
+        if (vaultEntry != null && user != null && vaultEntry.UserId == user.Id)
+        {
+            return View(vaultEntry);
+        }
+        return RedirectToAction("JelszoMainPage", "Jelszo");
+    }
+
+    [HttpPost]
+    public IActionResult Edit(string id, string username, string password, string website)
+    {
+        var usernameSession = HttpContext.Session.GetString("Username");
+        if (string.IsNullOrEmpty(usernameSession))
+        {
+            return RedirectToAction("JelszoMainPage", "Jelszo");
+        }
+        var user = _context.Users.FirstOrDefault(u => u.Username == usernameSession);
+        var vaultEntry = _context.VaultEntries.FirstOrDefault(v => v.Id == int.Parse(id));
+        if (vaultEntry != null && user != null && vaultEntry.UserId == user.Id)
+        {
+            vaultEntry.Username = username;
+            vaultEntry.Password = password;
+            vaultEntry.Website = website;
+            _context.VaultEntries.Update(vaultEntry);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("JelszoMainPage", "Jelszo");
+    }
+    
+    //Logout
+    [HttpGet]
+    public IActionResult Logout()
+    {
+        var username = HttpContext.Session.GetString("Username");
+        if (string.IsNullOrEmpty(username))
+        {
+            // Redirect to a login action
+            return RedirectToAction("Login", "User");
+        }
+        
+        HttpContext.Session.Clear();
+        return RedirectToAction("Login", "User");
     }
 }

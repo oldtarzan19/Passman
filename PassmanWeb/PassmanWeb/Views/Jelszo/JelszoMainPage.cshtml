@@ -7,7 +7,7 @@
 
 <h1>Jelszavak</h1>
 
-<table class="table table-striped table-bordered table-sm datatable">
+<table id="vaultTable" class="table table-striped table-bordered table-sm datatable">
     <thead>
     <tr>
         <th class="th-sm">
@@ -42,3 +42,17 @@
     }
     </tbody>
 </table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#vaultTable').DataTable({
+                searching: false,
+                info: false,
+                paging: false
+            });
+        });
+    </script>
+}
