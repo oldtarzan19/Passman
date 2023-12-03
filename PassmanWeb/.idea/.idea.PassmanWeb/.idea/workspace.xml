@@ -8,60 +8,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a78213c0-90a3-4397-baf3-14e2e866bbb6" name="Changes" comment="Migration to NET6">
-      <change afterPath="$PROJECT_DIR$/PassmanWeb/Views/Jelszo/Edit.cshtml" afterDir="false" />
+    <list default="true" id="a78213c0-90a3-4397-baf3-14e2e866bbb6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PassmanWeb/.idea/dataSources/450e821b-1481-438e-8b8e-3aa811442110.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PassmanWeb/.idea/dataSources/450e821b-1481-438e-8b8e-3aa811442110.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PassmanWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PassmanWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/Controllers/JelszoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/Controllers/JelszoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/Views/Home/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/Views/Jelszo/JelszoMainPage.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/Views/Jelszo/JelszoMainPage.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/Views/Shared/_Layout.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PassmanWeb/bin/Debug/net6.0/PassmanWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/bin/Debug/net6.0/PassmanWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PassmanWeb/bin/Debug/net6.0/PassmanWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/bin/Debug/net6.0/PassmanWeb.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/PassmanWeb.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/PassmanWeb.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/PassmanWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/PassmanWeb.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/PassmanWeb.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/PassmanWeb.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/ref/PassmanWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/ref/PassmanWeb.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/refint/PassmanWeb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/obj/Debug/net6.0/refint/PassmanWeb.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PassmanWeb/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PassmanWeb/passman.db" beforeDir="false" afterPath="$PROJECT_DIR$/PassmanWeb/passman.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/passman.db-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PassmanWeb/passman.db-wal" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/Kristof dolgok/Desktop/Passman/PassmanWeb/PassmanWeb/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2Z2TkApHprj793Oj0aO5ZmqcaAy" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Kristof\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Kristof\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\Kristof\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Kristof\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Kristof\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Kristof\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.PassmanWeb">
     <configuration name="PassmanWeb" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/PassmanWeb/PassmanWeb.csproj" />
@@ -102,7 +95,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701619314895</updated>
-      <workItem from="1701619315931" duration="3335000" />
+      <workItem from="1701619315931" duration="3730000" />
+      <workItem from="1701623375022" duration="93000" />
     </task>
     <task id="LOCAL-00001" summary="Migration to NET6">
       <option name="closed" value="true" />
@@ -112,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701621422429</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Kész">
+      <option name="closed" value="true" />
+      <created>1701622834006</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701622834006</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +135,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Migration to NET6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migration to NET6" />
+    <MESSAGE value="Kész" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kész" />
   </component>
 </project>
