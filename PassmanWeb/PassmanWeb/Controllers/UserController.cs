@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PassmanWeb.Models;
 
@@ -23,7 +24,7 @@ public class UserController: Controller
     {
         EncryptedType encryptedType = new EncryptedType();
         
-        var user = _context.Users.FirstOrDefault(u => u.Username == password && u.Password == encryptedType.Hash(password));
+        var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == encryptedType.Hash(password));
 
         if (user == null)
         {
@@ -32,8 +33,38 @@ public class UserController: Controller
         }
         else
         {
-            // User found
-            // Here you can start a new session or set a cookie
+            // Add the user to the session
+            HttpContext.Session.SetString("Username", user.Username);
+            HttpContext.Session.SetString("Email", user.Email);
+            return RedirectToAction("Index", "Home");
+        }
+    }
+    
+    [HttpGet]
+    [Authorize]
+    public IActionResult Register()
+    {
+        return View();
+    }
+    
+    [HttpPost]
+    public IActionResult Register(string username, string password, string email, string firstName, string lastName)
+    {
+        EncryptedType encryptedType = new EncryptedType();
+        
+        var user = _context.Users.FirstOrDefault(u => u.Username == username);
+
+        if (user == null)
+        {
+            // User not found
+            _context.Users.Add(new User(username, encryptedType.Hash(password), email, firstName, lastName));
+            _context.SaveChanges();
+            return RedirectToAction("Login");
+        }
+        else
+        {
+            HttpContext.Session.SetString("Username", username);
+            HttpContext.Session.SetString("Email", email);
             return RedirectToAction("Index", "Home");
         }
     }
