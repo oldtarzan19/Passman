@@ -15,6 +15,12 @@ namespace PassmanWeb.Controllers
 
         public IActionResult Index()
         {
+            // if the user logged in, return his name
+            if (HttpContext.Session.GetString("Username") != null)
+            {
+                
+                return View();
+            }
             return View();
         }
         
