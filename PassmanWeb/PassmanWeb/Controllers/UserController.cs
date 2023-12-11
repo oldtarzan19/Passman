@@ -20,7 +20,7 @@ public class UserController: Controller
     }
 
     [HttpPost]
-    public IActionResult Login(string username, string password)
+    public async Task<IActionResult> Login(string username, string password)
     {
         if (username.Trim().Length!=0 && password.Trim().Length!=0)
         {
@@ -54,7 +54,7 @@ public class UserController: Controller
     }
     
     [HttpPost]
-    public IActionResult Register(string username, string password, string email, string firstName, string lastName)
+    public async Task<IActionResult> Register(string username, string password, string email, string firstName, string lastName)
     {
         EncryptedType encryptedType = new EncryptedType();
         
@@ -64,7 +64,7 @@ public class UserController: Controller
         {
             // User not found
             _context.Users.Add(new User(username, encryptedType.Hash(password), email, firstName, lastName));
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             HttpContext.Session.SetString("Username", username);
             HttpContext.Session.SetString("Email", email);
             return RedirectToAction("JelszoMainPage", "Jelszo");

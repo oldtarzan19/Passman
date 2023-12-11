@@ -114,7 +114,7 @@ public class JelszoController : Controller
     
     //Logout
     [HttpGet]
-    public IActionResult Logout()
+    public async Task<IActionResult> Logout()
     {
         var username = HttpContext.Session.GetString("Username");
         if (string.IsNullOrEmpty(username))

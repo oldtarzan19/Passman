@@ -3,9 +3,9 @@
 }
 
 <div class="text-center">
-    <p>A jelszó kezelő alkalmazás. </p>
+    <h2>Jelszó kezelő alkalmazás. </h2>
    @if (!string.IsNullOrEmpty(Context.Session.GetString("Username")))
        {
-           <p>Üdvözöllek: @Context.Session.GetString("Username") </p>
+           <h3>Üdvözöllek: @Context.Session.GetString("Username") </h3>
        }
 </div>
